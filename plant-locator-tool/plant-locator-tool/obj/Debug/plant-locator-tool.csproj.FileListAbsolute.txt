@@ -16,3 +16,5 @@ D:\Visual Studio Projects\wgu-capstone\plant-locator-tool\plant-locator-tool\obj
 D:\Visual Studio Projects\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\plant-locator-tool.csproj.CopyComplete
 D:\Visual Studio Projects\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\plant-locator-tool.exe
 D:\Visual Studio Projects\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\plant-locator-tool.pdb
+D:\Visual Studio Projects\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\MapWindow.g.cs
+D:\Visual Studio Projects\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\MapWindow.baml

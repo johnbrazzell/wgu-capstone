@@ -10,25 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace plant_locator_tool
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MapWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MapWindow : Window
     {
-        public MainWindow()
+        public MapWindow()
         {
             InitializeComponent();
-        }
-
-        private void loginButton_Click(object sender, RoutedEventArgs e)
-        {
-          //Need to check if credentials are correct in DB and then 
-          //move to the next screen
         }
     }
 }
