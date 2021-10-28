@@ -3,10 +3,63 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:plant_locator_tool"
+        xmlns:local="clr-namespace:plant_locator_tool" xmlns:wpf="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
         mc:Ignorable="d"
         Title="Plant Locator" Height="450" Width="800">
+
+
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15*"></ColumnDefinition>
+            <ColumnDefinition Width="50*"></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="60*"></RowDefinition>
+
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1"
+          Grid.Column="0"
+          Background="#3b3b3b" />
         
+        <Grid Grid.Row="2"
+          Grid.Column="0"
+          Background="#3b3b3b" />
+
+        <DockPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Background="#3b3b3b">
+            <Menu DockPanel.Dock="Top" Background="#3b3b3b">
+                <MenuItem Header="File" Foreground="White" Background="#3b3b3b">
+                    <MenuItem Header="Add Plant/Warehouse..." Background="#3b3b3b" Foreground="White"></MenuItem>
+                    <MenuItem Header="Add User..." Background="#3b3b3b" Foreground="White"></MenuItem>
+                    <MenuItem Header="Quit" Background="#3b3b3b" Foreground="White"></MenuItem>
+                </MenuItem>
+            </Menu>
+
+        </DockPanel>
+
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+      
+            <TextBox Grid.Row="1" Grid.Column="0" Width="50" Height="15" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="1,11,5,0"/>
+            <Button Grid.Row="1" Grid.Column="0" Content="Search:" Grid.ColumnSpan="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,8,0,0"/>
+    
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="0" Grid.RowSpan="2">
+            <Label Foreground="White" Content="Plant/Warehouse Name"/>
+            <Label Foreground="White" Content="Address"/>
+            <Label Foreground="White" Content="Contact Information"/>
+            <Label Foreground="White" Content="Production Information"/>
+            <Label Foreground="White" Content="Sourced By"/>
+            <Label Foreground="White" Content="Last Updated (Date/User)"/>
+            
+
+        </StackPanel>
+
+        
+        <wpf:Map CredentialsProvider="AkbVNqEV1maGXyLUBXjt4QnK1H6LgGdg3UmVxVPEjPbVFtp_a6uqmp7WF-pQQ6n_" Mode="AerialWithLabels" ZoomLevel="2" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2"></wpf:Map>
     </Grid>
 </Window>

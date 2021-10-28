@@ -27,8 +27,14 @@ namespace plant_locator_tool
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
-          //Need to check if credentials are correct in DB and then 
-          //move to the next screen
+            //Need to check if credentials are correct in DB and then 
+            //move to the next screen
+
+            //adding test button functionality without doing a db check
+            MapWindow mapWindow = new MapWindow();
+            this.Close();
+            App.Current.MainWindow = mapWindow;
+            mapWindow.Show();
         }
     }
 }

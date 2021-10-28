@@ -18,3 +18,44 @@ D:\Visual Studio Projects\wgu-capstone\plant-locator-tool\plant-locator-tool\obj
 D:\Visual Studio Projects\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\plant-locator-tool.pdb
 D:\Visual Studio Projects\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\MapWindow.g.cs
 D:\Visual Studio Projects\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\MapWindow.baml
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\plant-locator-tool.exe.config
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\plant-locator-tool.exe
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\plant-locator-tool.pdb
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\Google.Protobuf.dll
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\Microsoft.Maps.MapControl.WPF.dll
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\MySql.Data.dll
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\System.Buffers.dll
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\System.Memory.dll
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\ZstdNet.dll
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\Google.Protobuf.pdb
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\Google.Protobuf.xml
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\Microsoft.Maps.MapControl.WPF.xml
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\MySql.Data.xml
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\System.Buffers.xml
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\System.Memory.xml
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\plant-locator-tool.csproj.AssemblyReference.cache
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\MainWindow.g.cs
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\MapWindow.g.cs
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\App.g.cs
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\plant-locator-tool_MarkupCompile.cache
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\plant-locator-tool_MarkupCompile.lref
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\MainWindow.baml
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\MapWindow.baml
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\plant-locator-tool.g.resources
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\plant_locator_tool.Properties.Resources.resources
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\plant-locator-tool.csproj.GenerateResource.cache
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\plant-locator-tool.csproj.CoreCompileInputs.cache
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\plant-locator-tool.exe
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\plant-locator-tool.pdb
