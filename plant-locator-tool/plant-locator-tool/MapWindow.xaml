@@ -60,6 +60,6 @@
         </StackPanel>
 
         
-        <wpf:Map CredentialsProvider="AkbVNqEV1maGXyLUBXjt4QnK1H6LgGdg3UmVxVPEjPbVFtp_a6uqmp7WF-pQQ6n_" Mode="AerialWithLabels" ZoomLevel="2" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2"></wpf:Map>
+        <wpf:Map CredentialsProvider="AkbVNqEV1maGXyLUBXjt4QnK1H6LgGdg3UmVxVPEjPbVFtp_a6uqmp7WF-pQQ6n_" Mode="AerialWithLabels" ZoomLevel="2" x:Name="mainMap" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2"></wpf:Map>
     </Grid>
 </Window>
