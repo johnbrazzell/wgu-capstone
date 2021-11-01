@@ -32,7 +32,7 @@
         <DockPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Background="#3b3b3b">
             <Menu DockPanel.Dock="Top" Background="#3b3b3b">
                 <MenuItem Header="File" Foreground="White" Background="#3b3b3b">
-                    <MenuItem Header="Add Plant/Warehouse..." Background="#3b3b3b" Foreground="White"></MenuItem>
+                    <MenuItem x:Name="addPlantMenuItem" Click="addPlantMenuItem_Click" Header="Add Plant/Warehouse..." Background="#3b3b3b" Foreground="White"></MenuItem>
                     <MenuItem Header="Add User..." Background="#3b3b3b" Foreground="White"></MenuItem>
                     <MenuItem Header="Quit" Background="#3b3b3b" Foreground="White"></MenuItem>
                 </MenuItem>

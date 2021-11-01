@@ -20,6 +20,7 @@ namespace plant_locator_tool
     /// </summary>
     public partial class MapWindow : Window
     {
+        //Chose the map start location to center on the middle of the U.S.  
         Location startLocation = new Location(44.967243, -103.77155);
 
         public MapWindow()
@@ -33,6 +34,13 @@ namespace plant_locator_tool
             //mainMap.Children.Add(testPin);
             
            
+        }
+
+        private void addPlantMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            //Create add plant window
+            AddPlantWindow addPlantWindow = new AddPlantWindow();
+            addPlantWindow.Show();
         }
     }
 }
