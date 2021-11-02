@@ -5,16 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:plant_locator_tool"
         mc:Ignorable="d"
-        Title="AddPlantWindow" Height="450" Width="800">
-    <StackPanel>
-        <Label Content="Plant/Warehouse Name:"/>
-        <Label Content="Produces/Sourced By"/>
-        <Label Content="Street"/>
+        Title="AddPlantWindow" Height="450" Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" HorizontalAlignment="Center">
+            <Label Content="Location Type:" Margin="10"/>
+            <Label Content="Location Name:" Margin="10"/>
+        <Label Content="Location Products:"/>
+        <Label Content="Location Street"/>
         <Label Content="City"/>
         <Label Content="State"/>
         <Label Content="Zip"/>
-        <Label Content="Add"/>
-        <Label Content="Cancel"/>
+        <Button Content="Add"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <ComboBox/>
+            <TextBox Margin="10"/>
+            <TextBox Margin="10"/>
+            <TextBox Margin="10"/>
+            <TextBox Margin="10"/>
+            <TextBox Margin="10"/>
+            <TextBox Margin="10"/>
+
+            <Label Content="Cancel"/>
 
     </StackPanel>
+    </Grid>
 </Window>

@@ -83,3 +83,5 @@ D:\Visual Studio Projects\wgu-capstone\plant-locator-tool\plant-locator-tool\bin
 D:\Visual Studio Projects\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\AddPlantWindow.g.cs
 C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\AddPlantWindow.baml
+D:\Visual Studio Projects\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\AddPlantWindow.g.cs
+D:\Visual Studio Projects\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\AddPlantWindow.baml
