@@ -85,3 +85,6 @@ C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-to
 C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\AddPlantWindow.baml
 D:\Visual Studio Projects\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\AddPlantWindow.g.cs
 D:\Visual Studio Projects\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\AddPlantWindow.baml
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\BingMapsRESTToolkit.dll
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\BingMapsRESTToolkit.pdb
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\BingMapsRESTToolkit.xml
