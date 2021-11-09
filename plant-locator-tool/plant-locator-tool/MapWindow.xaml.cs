@@ -36,7 +36,7 @@ namespace plant_locator_tool
         public string testLong = String.Empty;
         //string test = "https://dev.virtualearth.net/REST/version/restApi/resourcePath?queryParameters&key={AkbVNqEV1maGXyLUBXjt4QnK1H6LgGdg3UmVxVPEjPbVFtp_a6uqmp7WF-pQQ6n_}";
         //string test = "http://dev.virtualearth.net/REST/v1/Locations/US/-/10548/-/-?&key={AkbVNqEV1maGXyLUBXjt4QnK1H6LgGdg3UmVxVPEjPbVFtp_a6uqmp7WF-pQQ6n}";
-        string test = "http://dev.virtualearth.net/REST/v1/Locations/US/WA/Redmond/1%20Microsoft%20Way?output=xml&key={AkbVNqEV1maGXyLUBXjt4QnK1H6LgGdg3UmVxVPEjPbVFtp_a6uqmp7WF-pQQ6n}";
+       // string test = "http://dev.virtualearth.net/REST/v1/Locations/US/WA/Redmond/1%20Microsoft%20Way?output=xml&key={AkbVNqEV1maGXyLUBXjt4QnK1H6LgGdg3UmVxVPEjPbVFtp_a6uqmp7WF-pQQ6n}";
         string sessionKey;
       
 
@@ -57,20 +57,18 @@ namespace plant_locator_tool
             {
                 sessionKey = c.ApplicationId;
 
-                //Generate a request URL for the Bing Maps REST services.  
-                //Use the session key in the request as the Bing Maps key  
             });
 
         }
 
-        private async void GeocodeAddress()
+        private async void GeocodeAddress(string address)
         {
 
             var request = new GeocodeRequest()
             {
 
                 //Query = "New York, NY",
-                Query = "10548",
+                Query = address,
                 IncludeIso2 = true,
                 IncludeNeighborhood = true,
                 MaxResults = 25,
@@ -88,67 +86,14 @@ namespace plant_locator_tool
             {
                 var result = response.ResourceSets[0].Resources[0] as BingMapsRESTToolkit.Location;
 
-                //Do something with the result.
-
-                double lat = result.Point.Coordinates[0];
-                double longgi = result.Point.Coordinates[1];
-               
-                MessageBox.Show($"Lat: {lat} Long: {longgi}");
             }
         }
 
         private void addPlantMenuItem_Click(object sender, RoutedEventArgs e)
         {
 
-            GeocodeAddress();
        
-
-
-
-   
-
         }
     
-
-        //public XmlDocument Geocode(string addressQuery)
-        //{
-        //    string geocodeRequest = "http://dev.virtualearth.net/REST/v1/Locations/" + addressQuery + "?o=xml&key=" + mainMap.CredentialsProvider.SessionId;
-        //    //string test = "https://dev.virtualearth.net/REST/version/restApi/resourcePath?queryParameters&key={AkbVNqEV1maGXyLUBXjt4QnK1H6LgGdg3UmVxVPEjPbVFtp_a6uqmp7WF-pQQ6n_}";
-
-        //    XmlDocument geocodeResponse = GetXmlResponse(addressQuery);
-
-        //    return (geocodeResponse);
-        //}
-
-        //private XmlDocument GetXmlResponse(string requestUrl)
-        //{
-        //    System.Diagnostics.Trace.WriteLine("Request URL (XML): " + requestUrl);
-        //    HttpWebRequest request = WebRequest.Create(requestUrl) as HttpWebRequest;
-        //    using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
-        //    {
-        //        if (response.StatusCode != HttpStatusCode.OK)
-        //            throw new Exception(String.Format("Server error (HTTP {0}: {1}).",
-        //            response.StatusCode,
-        //            response.StatusDescription));
-        //        XmlDocument xmlDoc = new XmlDocument();
-        //        xmlDoc.Load(response.GetResponseStream());
-        //        return xmlDoc;
-        //    }
-        //}
-
-        //private void GetResponse(Uri uri, Action<Response> callback)
-        //{
-        //    WebClient wc = new WebClient();
-        //    wc.OpenReadCompleted += (o, a) =>
-        //    {
-        //        if (callback != null)
-        //        {
-        //            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Response));
-        //            callback(ser.ReadObject(a.Result) as Response);
-                    
-        //        }
-        //    };
-        //    wc.OpenReadAsync(uri);
-        //}
     }
 }
