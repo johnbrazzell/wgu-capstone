@@ -32,11 +32,11 @@ namespace plant_locator_tool
         {
             //TODO Add connection string information
             MySqlConnectionStringBuilder connectionString = new MySqlConnectionStringBuilder();
-            connectionString.Server = "";
-            connectionString.UserID = "";
-            connectionString.Port = 0;
-            connectionString.Database = "";
-            connectionString.Password = "";
+            connectionString.Server = "127.0.0.1";
+            connectionString.UserID = "root";
+            connectionString.Port = 3306;
+            connectionString.Database = "plant_locator_db";
+            connectionString.Password = "#90BakeFree36";
 
             _connection = new MySqlConnection(connectionString.ToString());
 
@@ -49,6 +49,7 @@ namespace plant_locator_tool
                 try
                 {
                     _connection.Open();
+                    //System.Windows.MessageBox.Show(_connection.State.ToString());
                 }
                 catch(MySqlException e)
                 {

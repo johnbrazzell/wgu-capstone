@@ -29,12 +29,12 @@ namespace plant_locator_tool
         {
             //Need to check if credentials are correct in DB and then 
             //move to the next screen
-
+            DBHelper.OpenConnection();
             //adding test button functionality without doing a db check
-            MapWindow mapWindow = new MapWindow();
-            this.Close();
-            App.Current.MainWindow = mapWindow;
-            mapWindow.Show();
+            //MapWindow mapWindow = new MapWindow();
+            //this.Close();
+            //App.Current.MainWindow = mapWindow;
+            //mapWindow.Show();
         }
     }
 }
