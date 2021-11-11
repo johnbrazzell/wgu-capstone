@@ -48,10 +48,10 @@ namespace plant_locator_tool
          
             
 
-            Pushpin testPin = new Pushpin();
-            testPin.Location = startLocation;
-            testPin.ToolTip = "Test";
-            mainMap.Children.Add(testPin);
+            //Pushpin testPin = new Pushpin();
+            //testPin.Location = startLocation;
+            //testPin.ToolTip = "Test";
+            //mainMap.Children.Add(testPin);
 
             mainMap.CredentialsProvider.GetCredentials((c) =>
             {
@@ -94,6 +94,12 @@ namespace plant_locator_tool
 
        
         }
-    
+
+        private void addUserMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            AddUserWindow addUserWindow = new AddUserWindow();
+
+            addUserWindow.Show();
+        }
     }
 }

@@ -45,7 +45,6 @@ C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-to
 C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\System.Memory.xml
 C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\plant-locator-tool.csproj.AssemblyReference.cache
 C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\MainWindow.g.cs
 C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\MapWindow.g.cs
 C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\App.g.cs
@@ -88,3 +87,6 @@ D:\Visual Studio Projects\wgu-capstone\plant-locator-tool\plant-locator-tool\obj
 C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\BingMapsRESTToolkit.dll
 C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\BingMapsRESTToolkit.pdb
 C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\bin\Debug\BingMapsRESTToolkit.xml
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\AddUserWindow.g.cs
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\AddUserWindow.baml
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\plant-locator-tool.csproj.AssemblyReference.cache

@@ -99,8 +99,7 @@ namespace plant_locator_tool
             MySqlDataReader loginReader = loginCheckCommand.ExecuteReader();
 
 
-            //while(loginReader.Read())
-            //{
+       
             if (loginReader.HasRows)
             {
                 loginReader.Close();
@@ -130,9 +129,17 @@ namespace plant_locator_tool
 
         }
 
-        public static void AddNewUser()
+        public static void AddNewUser(string userName, string password, bool isAdmin)
         {
+            MySqlCommand addUserCommand = _connection.CreateCommand();
+            addUserCommand.CommandText = "INSERT INTO user (username, password, isAdmin)" +
+                "VALUES(@username, @password, @isAdmin)";
 
+            addUserCommand.Parameters.AddWithValue("@username", userName);
+            addUserCommand.Parameters.AddWithValue("@password", password);
+            addUserCommand.Parameters.AddWithValue("@isAdmin", isAdmin);
+
+            addUserCommand.ExecuteNonQuery();
         }
 
 
