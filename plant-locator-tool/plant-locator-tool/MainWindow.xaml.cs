@@ -30,11 +30,22 @@ namespace plant_locator_tool
             //Need to check if credentials are correct in DB and then 
             //move to the next screen
             DBHelper.OpenConnection();
+            
+            bool loginWasVerified = DBHelper.VerifyLogin(userNameTextBox.Text, passwordBox.Password);
             //adding test button functionality without doing a db check
-            //MapWindow mapWindow = new MapWindow();
-            //this.Close();
-            //App.Current.MainWindow = mapWindow;
-            //mapWindow.Show();
+
+            if (loginWasVerified)
+            {
+                MapWindow mapWindow = new MapWindow();
+                this.Close();
+                App.Current.MainWindow = mapWindow;
+                mapWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("Username and password invalid");
+            }
+
         }
     }
 }

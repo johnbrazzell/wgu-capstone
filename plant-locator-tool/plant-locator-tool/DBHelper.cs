@@ -89,6 +89,34 @@ namespace plant_locator_tool
         }
 
 
+        static public bool VerifyLogin(string userName, string password)
+        {
+            MySqlCommand loginCheckCommand = _connection.CreateCommand();
+            loginCheckCommand.CommandText = "SELECT * FROM user WHERE username=@username AND password=@password";
+            loginCheckCommand.Parameters.AddWithValue("@username", userName);
+            loginCheckCommand.Parameters.AddWithValue("@password", password);
+
+            MySqlDataReader loginReader = loginCheckCommand.ExecuteReader();
+
+
+            //while(loginReader.Read())
+            //{
+            if (loginReader.HasRows)
+            {
+                loginReader.Close();
+                return true;
+
+            }
+            else
+            {
+                loginReader.Close();
+                return false;
+           
+            }
+            
+        }
+
+
 
 
         public static void AddLocation()
