@@ -32,11 +32,11 @@
         <DockPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Background="#3b3b3b">
             <Menu DockPanel.Dock="Top" Background="#3b3b3b">
                 <MenuItem Header="File" Foreground="White" Background="#3b3b3b">
-                    <MenuItem Header="Admin Options" Background="#3b3b3b" Foreground="White">
+                    <MenuItem Header="Admin Options" x:Name="adminOptions" Background="#3b3b3b" Foreground="White">
                         <MenuItem Header="Add Plant"  x:Name="addPlantMenuItem" Click="addPlantMenuItem_Click" Background="#3b3b3b" Foreground="White"></MenuItem>
-                        <MenuItem Header="Edit Plant" x:Name="editPlantMenuItem" Background="#3b3b3b" Foreground="White"></MenuItem>
+                        <MenuItem Header="View Plants" x:Name="editPlantMenuItem" Background="#3b3b3b" Foreground="White"></MenuItem>
                         <MenuItem Header="Add User" x:Name="addUserMenuItem" Click="addUserMenuItem_Click" Background="#3b3b3b"></MenuItem>
-                        <MenuItem Header="Edit User" Background="#3b3b3b"></MenuItem>
+                        <MenuItem Header="View Users" Background="#3b3b3b"></MenuItem>
                     </MenuItem>
                     <MenuItem Header="Quit" Background="#3b3b3b" Foreground="White"></MenuItem>
                 </MenuItem>

@@ -43,8 +43,12 @@ namespace plant_locator_tool
         public MapWindow()
         {
             InitializeComponent();
-            Microsoft.Maps.MapControl.WPF.Location startLocation = new Microsoft.Maps.MapControl.WPF.Location(44.967243, -103.77155);
-            mainMap.SetView(startLocation, 3.0);
+            if(!DBHelper.GetAdminStatus())
+            {
+                adminOptions.IsEnabled = false;
+            }
+            //Microsoft.Maps.MapControl.WPF.Location startLocation = new Microsoft.Maps.MapControl.WPF.Location(44.967243, -103.77155);
+            //mainMap.SetView(startLocation, 3.0);
          
             
 

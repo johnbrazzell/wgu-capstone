@@ -18,9 +18,17 @@ namespace plant_locator_tool
         private static string _currentUser;
         private static bool _isAdmin;
 
-        public static void Login(string userName, string password)
-        {
 
+
+        public static void SetAdminStatus(bool isAdmin)
+        {
+            _isAdmin = isAdmin;
+           
+        }
+
+        public static bool GetAdminStatus()
+        {
+            return _isAdmin;
         }
 
         public static MySqlConnection GetConnection()
@@ -49,7 +57,7 @@ namespace plant_locator_tool
                 try
                 {
                     _connection.Open();
-                    //System.Windows.MessageBox.Show(_connection.State.ToString());
+               
                 }
                 catch(MySqlException e)
                 {
@@ -91,6 +99,8 @@ namespace plant_locator_tool
 
         static public bool VerifyLogin(string userName, string password)
         {
+
+
             MySqlCommand loginCheckCommand = _connection.CreateCommand();
             loginCheckCommand.CommandText = "SELECT * FROM user WHERE username=@username AND password=@password";
             loginCheckCommand.Parameters.AddWithValue("@username", userName);
@@ -102,6 +112,23 @@ namespace plant_locator_tool
        
             if (loginReader.HasRows)
             {
+                while(loginReader.Read())
+                {
+                    //Store admin status and username
+                    string adminStatus = loginReader["isAdmin"].ToString();
+                    _currentUser = loginReader["username"].ToString();
+                    if(adminStatus == "0")
+                    {
+                        SetAdminStatus(false);
+                    }
+                    else
+                    {
+                        SetAdminStatus(true);
+                    }
+                    break;
+                }
+               
+                
                 loginReader.Close();
                 return true;
 
@@ -112,10 +139,34 @@ namespace plant_locator_tool
                 return false;
            
             }
+
+            
             
         }
 
 
+        //public static void CheckAdminStatus(string username)
+        //{
+        //    MySqlCommand adminCheckCommand = _connection.CreateCommand();
+        //    adminCheckCommand.CommandText = "SELECT isAdmin FROM user WHERE username=@username";
+        //    adminCheckCommand.Parameters.AddWithValue("@username", username);
+
+        //    MySqlDataReader adminReader = adminCheckCommand.ExecuteReader();
+
+        //    while(adminReader.Read())
+        //    {
+        //        _isAdmin = adminReader.GetFieldValue<bool>(4);
+        //        return _isAdmin;
+        //        adminReader.Close();
+        //        break;
+        //    }
+
+        //}
+
+        private static void CreateLoginTimestamp()
+        {
+            string query = "INSERT INTO 'user";
+        }
 
 
         public static void AddLocation()

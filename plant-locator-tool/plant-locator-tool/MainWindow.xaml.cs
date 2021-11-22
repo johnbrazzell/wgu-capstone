@@ -32,7 +32,9 @@ namespace plant_locator_tool
             DBHelper.OpenConnection();
             
             bool loginWasVerified = DBHelper.VerifyLogin(userNameTextBox.Text, passwordBox.Password);
-            //adding test button functionality without doing a db check
+            
+
+            
 
             if (loginWasVerified)
             {

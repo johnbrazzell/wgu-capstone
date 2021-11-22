@@ -12,7 +12,7 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" HorizontalAlignment="Center">
-            <Label Content="Location Type:" Margin="10"/>
+         
             <Label Content="Location Name:" Margin="10"/>
         <Label Content="Location Products:"/>
         <Label Content="Location Street"/>
@@ -22,7 +22,7 @@
         <Button Content="Add"/>
         </StackPanel>
         <StackPanel Grid.Column="1">
-            <ComboBox/>
+        
             <TextBox Margin="10"/>
             <TextBox Margin="10"/>
             <TextBox Margin="10"/>
