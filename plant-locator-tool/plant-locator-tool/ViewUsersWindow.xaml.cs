@@ -27,7 +27,7 @@ namespace plant_locator_tool
         {
             InitializeComponent();
             FillGrid();
-       
+            userListView.SelectionMode = SelectionMode.Single;
         }
 
         public void FillGrid()
@@ -39,12 +39,41 @@ namespace plant_locator_tool
             adapater.Fill(dt);
             userListView.ItemsSource = dt.DefaultView;
             userListView.DataContext = dt;
-
+            
+            
         }
 
         private void editUserButton_Click(object sender, RoutedEventArgs e)
         {
+            // load another window showing which user you are editing
+            // allow user to edit admin status and save that back into database
+            // refresh database on screen\
+            if(userListView.SelectedItem != null)
+            {
+                User selectedUser = new User();
+                DataRowView rowView = userListView.SelectedItem as DataRowView;
+                if(rowView != null)
+                {
+                  
+                    selectedUser.UserID = Int32.Parse(rowView.Row.ItemArray[0].ToString());
+                    selectedUser.UserName = rowView.Row.ItemArray[1].ToString();
+                    int adminStatus = Int32.Parse(rowView.Row.ItemArray[2].ToString());
+                    if(adminStatus == 0)
+                    {
+                        selectedUser.AdminStatus = false;
+                    }
+                    else
+                    {
+                        selectedUser.AdminStatus = true;
+                    }
 
+                    //selectedUser.LastLogin = DateTime.Parse(rowView.Row.ItemArray[3].ToString());
+                }
+
+                //open edit user window
+                EditUserWindow editUser = new EditUserWindow(selectedUser);
+                editUser.Show();
+            }
         }
 
         private void deleteUserButton_Click(object sender, RoutedEventArgs e)
