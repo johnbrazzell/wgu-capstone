@@ -105,5 +105,11 @@ namespace plant_locator_tool
 
             addUserWindow.Show();
         }
+
+        private void viewUsersMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            ViewUsersWindow viewUserWindow = new ViewUsersWindow();
+            viewUserWindow.Show();
+        }
     }
 }

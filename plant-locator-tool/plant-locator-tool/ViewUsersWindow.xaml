@@ -7,7 +7,16 @@
         mc:Ignorable="d"
         Title="View Users" Height="450" Width="800">
     <StackPanel>
-        <ListView x:Name="userListView"/>
+        <ListView x:Name="userListView" ItemsSource="{Binding }" Height="200" Width="500">
+            <ListView.View>
+                <GridView x:Name="gridView">
+                <GridViewColumn DisplayMemberBinding="{Binding Path=userID}" Header="User ID"/>
+                <GridViewColumn DisplayMemberBinding="{Binding Path=username}" Header="Username"/>
+                <GridViewColumn DisplayMemberBinding="{Binding Path=isAdmin}" Header="Admin Status"/>
+                <GridViewColumn DisplayMemberBinding="{Binding Path=lastLogin}" Header="Last Login"/>
+            </GridView>
+            </ListView.View>
+        </ListView>
         <Button x:Name="editUserButton" Content="Edit User" Click="editUserButton_Click"/>
         <Button x:Name="deleteUserButton" Content="Delete User" Click="deleteUserButton_Click"/>
         <Button x:Name="cancelButton" Content="Cancel" Click="cancelButton_Click"/>

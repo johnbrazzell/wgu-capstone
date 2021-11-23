@@ -36,7 +36,7 @@
                         <MenuItem Header="Add Plant"  x:Name="addPlantMenuItem" Click="addPlantMenuItem_Click" Background="#3b3b3b" Foreground="White"></MenuItem>
                         <MenuItem Header="View Plants" x:Name="editPlantMenuItem" Background="#3b3b3b" Foreground="White"></MenuItem>
                         <MenuItem Header="Add User" x:Name="addUserMenuItem" Click="addUserMenuItem_Click" Background="#3b3b3b"></MenuItem>
-                        <MenuItem Header="View Users" Background="#3b3b3b"></MenuItem>
+                        <MenuItem Header="View Users" x:Name="viewUsersMenuItem" Click="viewUsersMenuItem_Click" Background="#3b3b3b"></MenuItem>
                     </MenuItem>
                     <MenuItem Header="Quit" Background="#3b3b3b" Foreground="White"></MenuItem>
                 </MenuItem>

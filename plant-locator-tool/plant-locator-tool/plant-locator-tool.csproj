@@ -105,6 +105,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UserViewModel.cs" />
     <Compile Include="ViewUsersWindow.xaml.cs">
       <DependentUpon>ViewUsersWindow.xaml</DependentUpon>
     </Compile>
@@ -130,7 +131,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DatabaseHelper.cs" />
     <Compile Include="DBHelper.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
