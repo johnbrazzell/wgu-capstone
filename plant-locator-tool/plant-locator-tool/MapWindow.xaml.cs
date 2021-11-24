@@ -111,5 +111,17 @@ namespace plant_locator_tool
             ViewUsersWindow viewUserWindow = new ViewUsersWindow();
             viewUserWindow.Show();
         }
+
+        private void changePasswordMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            
+            ChangePasswordWindow window = new ChangePasswordWindow();
+            window.Show();
+        }
+
+        private void quitMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

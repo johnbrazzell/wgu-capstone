@@ -36,6 +36,11 @@ namespace plant_locator_tool
             return _connection;
         }
 
+        public static string GetCurrentUser()
+        {
+            return _currentUser;
+        }
+
         static public void OpenConnection()
         {
             //TODO Add connection string information

@@ -38,7 +38,9 @@
                         <MenuItem Header="Add User" x:Name="addUserMenuItem" Click="addUserMenuItem_Click" Background="#3b3b3b"></MenuItem>
                         <MenuItem Header="View Users" x:Name="viewUsersMenuItem" Click="viewUsersMenuItem_Click" Background="#3b3b3b"></MenuItem>
                     </MenuItem>
-                    <MenuItem Header="Quit" Background="#3b3b3b" Foreground="White"></MenuItem>
+
+                    <MenuItem Header="Change Password" x:Name="changePasswordMenuItem" Click="changePasswordMenuItem_Click" Background="#3b3b3b" Foreground="White"></MenuItem>
+                    <MenuItem Header="Quit" x:Name="quitMenuItem" Click="quitMenuItem_Click" Background="#3b3b3b" Foreground="White"></MenuItem>
                 </MenuItem>
             </Menu>
 
