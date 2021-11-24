@@ -71,19 +71,42 @@ namespace plant_locator_tool
                 }
 
                 //open edit user window
-                EditUserWindow editUser = new EditUserWindow(selectedUser);
+                EditUserWindow editUser = new EditUserWindow(this, selectedUser);
                 editUser.Show();
             }
         }
 
         private void deleteUserButton_Click(object sender, RoutedEventArgs e)
         {
+            MySqlCommand deleteCommand = DBHelper.GetConnection().CreateCommand();
+            deleteCommand.CommandText = "DELETE FROM user WHERE username=@username";
+
+            DataRowView rowView = userListView.SelectedItem as DataRowView;
+            if(rowView != null)
+            {
+                string username = rowView.Row.ItemArray[1].ToString();
+                deleteCommand.Parameters.AddWithValue("@username", username);
+
+                try 
+                { 
+                    deleteCommand.ExecuteNonQuery();
+                }
+                catch (MySqlException exception)
+                {
+                    MessageBox.Show(exception.ToString());
+                }
+
+            }
+
+
+            //Update the grid
+            FillGrid();
 
         }
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
     }
 }

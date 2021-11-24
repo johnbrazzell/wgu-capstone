@@ -21,14 +21,16 @@ namespace plant_locator_tool
     public partial class EditUserWindow : Window
     {
         private User updatedUser;
+        private ViewUsersWindow parentWindow;
   
         private string oldUsername;
-        public EditUserWindow(User user)
+        public EditUserWindow(ViewUsersWindow window, User user)
         {
             InitializeComponent();
+            parentWindow = window;
             if(user.AdminStatus)
             {
-                isAdminCheckBox.IsChecked = true;
+              isAdminCheckBox.IsChecked = true;
             }
             nameOfUserLabel.Content = "Editing User " + user.UserName;
 
@@ -42,10 +44,17 @@ namespace plant_locator_tool
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
+            if(String.IsNullOrEmpty(usernameTextBox.Text))
+            {
+                updatedUser.UserName = oldUsername;
+            }
+            else
+            {
 
-            updatedUser.UserName = usernameTextBox.Text;
-            updatedUser.AdminStatus = isAdminCheckBox.IsChecked.Value;
+                updatedUser.UserName = usernameTextBox.Text;
+                updatedUser.AdminStatus = isAdminCheckBox.IsChecked.Value;
             
+            }
 
             MySqlCommand command = DBHelper.GetConnection().CreateCommand();
           
@@ -64,6 +73,7 @@ namespace plant_locator_tool
                 MessageBox.Show(exception.ToString());
                 return; // Return to give user a chance to correct errors
             }
+            parentWindow.FillGrid();
 
             this.Close();
         }
