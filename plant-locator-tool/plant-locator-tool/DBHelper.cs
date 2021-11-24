@@ -130,6 +130,7 @@ namespace plant_locator_tool
                
                 
                 loginReader.Close();
+                CreateLoginTimestamp(userName);
                 return true;
 
             }
@@ -163,22 +164,15 @@ namespace plant_locator_tool
 
         //}
 
-        private static void CreateLoginTimestamp()
+        private static void CreateLoginTimestamp(string username)
         {
-            string query = "INSERT INTO 'user";
+            MySqlCommand command = _connection.CreateCommand();
+            command.CommandText = "UPDATE user SET lastLogin=@newLoginTime WHERE username=@username";
+            command.Parameters.AddWithValue("@newLoginTime", DateTime.Now);
+            command.Parameters.AddWithValue("@username", username);
+            command.ExecuteNonQuery();
         }
 
-
-        public static void AddLocation()
-        {
-
-        }
-
-
-        public static void DeleteLocation()
-        {
-
-        }
 
         public static void AddNewUser(string userName, string password, bool isAdmin)
         {
@@ -193,21 +187,5 @@ namespace plant_locator_tool
             addUserCommand.ExecuteNonQuery();
         }
 
-
-        public static void DeleteUser()
-        {
-
-        }
-
-
-        public static void UpdatePassword()
-        {
-
-        }
-
-        public static void GetUserList()
-        {
-
-        }
     }
 }
