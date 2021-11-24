@@ -8,5 +8,11 @@
         Title="EditUserWindow" Height="450" Width="800">
     <StackPanel>
         <Label x:Name="nameOfUserLabel" Content="Update with username"/>
+        <Label Content="Change Username:"/>
+        <TextBox x:Name="usernameTextBox"/>
+        <Label Content="Change Admin Status"/>
+        <CheckBox x:Name="isAdminCheckBox"/>
+        <Button x:Name="saveButton" Content="Save" Click="saveButton_Click"/>
+        <Button x:Name="cancelButton" Content="Cancel" Click="cancelButton_Click"/>
     </StackPanel>
 </Window>
