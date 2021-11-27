@@ -50,6 +50,7 @@ namespace plant_locator_tool
             connectionString.Port = 3306;
             connectionString.Database = "plant_locator_db";
             connectionString.Password = "#90BakeFree36";
+            connectionString.AllowUserVariables = true;
 
             _connection = new MySqlConnection(connectionString.ToString());
 

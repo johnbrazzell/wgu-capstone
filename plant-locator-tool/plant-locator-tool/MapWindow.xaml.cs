@@ -1,5 +1,5 @@
-﻿using Microsoft.Maps.MapControl.WPF;
-using System;
+﻿using System;
+using Microsoft.Maps.MapControl.WPF;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -65,7 +65,8 @@ namespace plant_locator_tool
 
         }
 
-        private async void GeocodeAddress(string address)
+        //maybe create a class here and pass the object in?
+        public async void GeocodeAddress(string plantName, string address)
         {
 
             var request = new GeocodeRequest()
@@ -75,7 +76,7 @@ namespace plant_locator_tool
                 Query = address,
                 IncludeIso2 = true,
                 IncludeNeighborhood = true,
-                MaxResults = 25,
+                MaxResults = 1,
                 BingMapsKey = sessionKey
 
             };
@@ -90,12 +91,31 @@ namespace plant_locator_tool
             {
                 var result = response.ResourceSets[0].Resources[0] as BingMapsRESTToolkit.Location;
 
+            
+      
+                Pushpin pin = new Pushpin();
+           
+                double latitude = result.Point.Coordinates[0];
+                double longitude = result.Point.Coordinates[1];
+                pin.Location.Latitude = latitude;
+                pin.Location.Longitude = longitude;
+
+                pin.Name = plantName;
+                pin.ToolTip = pin.Name;
+                mainMap.Children.Add(pin);
+               // pin.Location =;
+
+            }
+            else
+            {
+                MessageBox.Show("Address not found");
             }
         }
 
         private void addPlantMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            AddPlantWindow plantWindow = new AddPlantWindow(this);
+            plantWindow.Show();
        
         }
 

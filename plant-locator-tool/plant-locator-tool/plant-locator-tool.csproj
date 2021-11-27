@@ -111,6 +111,7 @@
     <Compile Include="EditUserWindow.xaml.cs">
       <DependentUpon>EditUserWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Plant.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserViewModel.cs" />
     <Compile Include="ViewUsersWindow.xaml.cs">
