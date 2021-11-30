@@ -63,7 +63,7 @@ namespace plant_locator_tool
             var request = new GeocodeRequest()
             {
 
-                //Query = "New York, NY",
+           
                 Query = $"{streetTextbox.Text} {cityTextbox.Text} {stateTextbox.Text} {zipTextBox.Text}",
                 IncludeIso2 = true,
                 IncludeNeighborhood = true,
@@ -90,19 +90,15 @@ namespace plant_locator_tool
                 double longitude = result.Point.Coordinates[1];
 
                 Microsoft.Maps.MapControl.WPF.Location newLocation = new Microsoft.Maps.MapControl.WPF.Location(latitude, longitude);
-                //MessageBox.Show("Lat: " + latitude.ToString() + "Long:" + longitude.ToString());
+
                 AddPlantToDatabase(latitude, longitude);
 
                 _mapWindow.AddPinToMap(_lastID, latitude, longitude);
 
-                //_pin.Uid = _lastID.ToString();
-                //_pin.Location = newLocation;
-               
-                ////_pin.Name = _lastID.ToString();
-                //_pin.Content = plantNameTextbox.Text;
-                //_pin.ToolTip = _pin.Content;
-                //_mapWindow.mainMap.Children.Add(_pin);
 
+                this.Close();
+
+             
 
                 
 

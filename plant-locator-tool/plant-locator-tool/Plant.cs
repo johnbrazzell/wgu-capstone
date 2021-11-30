@@ -8,6 +8,7 @@ namespace plant_locator_tool
 {
     class Plant
     {
+        int PlantID { get; set; }
         string PlantName { get; set; }
         string PlantAddress { get; set; }
         string PhoneNumber { get; set; }

@@ -47,7 +47,7 @@ namespace plant_locator_tool
         {
             // load another window showing which user you are editing
             // allow user to edit admin status and save that back into database
-            // refresh database on screen\
+            // refresh database on screen
             if(userListView.SelectedItem != null)
             {
                 User selectedUser = new User();

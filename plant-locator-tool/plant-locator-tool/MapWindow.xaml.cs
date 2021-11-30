@@ -23,21 +23,15 @@ using BingMapsRESTToolkit;
 
 namespace plant_locator_tool
 {
-    /// <summary>
-    /// http://dev.virtualearth.net/REST/v1/Locations/US/{adminDistrict}/{postalCode}/{locality}/{addressLine}?includeNeighborhood={includeNeighborhood}&include={includeValue}&maxResults={maxResults}&key={BingMapsKey}
-    /// http://dev.virtualearth.net/REST/v1/Locations/US/-/10548/-/-?key={AkbVNqEV1maGXyLUBXjt4QnK1H6LgGdg3UmVxVPEjPbVFtp_a6uqmp7WF-pQQ6n}
-    /// Interaction logic for MapWindow.xaml
-    /// </summary>
+   
     public partial class MapWindow : Window
     {
         
-        //Chose the map start location to center on the middle of the U.S.  
+       //Chose the map start location to center on the middle of the U.S.  
        // Location startLocation = new Location(44.967243, -103.77155);
         public string testLat = String.Empty;
         public string testLong = String.Empty;
-        //string test = "https://dev.virtualearth.net/REST/version/restApi/resourcePath?queryParameters&key={AkbVNqEV1maGXyLUBXjt4QnK1H6LgGdg3UmVxVPEjPbVFtp_a6uqmp7WF-pQQ6n_}";
-        //string test = "http://dev.virtualearth.net/REST/v1/Locations/US/-/10548/-/-?&key={AkbVNqEV1maGXyLUBXjt4QnK1H6LgGdg3UmVxVPEjPbVFtp_a6uqmp7WF-pQQ6n}";
-       // string test = "http://dev.virtualearth.net/REST/v1/Locations/US/WA/Redmond/1%20Microsoft%20Way?output=xml&key={AkbVNqEV1maGXyLUBXjt4QnK1H6LgGdg3UmVxVPEjPbVFtp_a6uqmp7WF-pQQ6n}";
+
         string sessionKey;
       
 
@@ -100,7 +94,6 @@ namespace plant_locator_tool
                 clickedPin.ReleaseMouseCapture();
                 plantNameLabel.Content = clickedPin.Uid;
                 
-            
             }
         }
 
@@ -185,6 +178,10 @@ namespace plant_locator_tool
             Application.Current.Shutdown();
         }
 
-       
+        private void viewPlantMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            ViewPlantsWindow window = new ViewPlantsWindow();
+            window.Show();
+        }
     }
 }

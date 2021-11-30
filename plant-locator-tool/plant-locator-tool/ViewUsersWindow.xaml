@@ -9,7 +9,7 @@
     <StackPanel>
         <ListView x:Name="userListView" ItemsSource="{Binding }" Height="200" Width="500">
             <ListView.View>
-                <GridView x:Name="gridView">
+                <GridView x:Name="gridView" AllowsColumnReorder="False">
                 <GridViewColumn DisplayMemberBinding="{Binding Path=userID}" Header="User ID"/>
                 <GridViewColumn DisplayMemberBinding="{Binding Path=username}" Header="Username"/>
                 <GridViewColumn DisplayMemberBinding="{Binding Path=isAdmin}" Header="Admin Status"/>
