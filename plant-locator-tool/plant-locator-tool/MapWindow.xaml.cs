@@ -49,23 +49,13 @@ namespace plant_locator_tool
                 adminOptions.IsEnabled = false;
             }
 
-            LoadPinsFromDatabase();
-            //Microsoft.Maps.MapControl.WPF.Location startLocation = new Microsoft.Maps.MapControl.WPF.Location(44.967243, -103.77155);
-            //mainMap.SetView(startLocation, 3.0);
-         
-            
-
-            //Pushpin testPin = new Pushpin();
-            //testPin.Location = startLocation;
-            //testPin.ToolTip = "Test";
-            //mainMap.Children.Add(testPin);
-
             mainMap.CredentialsProvider.GetCredentials((c) =>
             {
                 sessionKey = c.ApplicationId;
 
             });
 
+            LoadPinsFromDatabase();
         }
 
 
@@ -114,51 +104,48 @@ namespace plant_locator_tool
             }
         }
 
-        //public async void GeocodeAddress(string plantName, string address)
-        //{
+        private async void SearchView(string address)
+        {
 
-        //    var request = new GeocodeRequest()
-        //    {
+            var request = new GeocodeRequest()
+            {
 
-        //        //Query = "New York, NY",
-        //        Query = address,
-        //        IncludeIso2 = true,
-        //        IncludeNeighborhood = true,
-        //        MaxResults = 1,
-        //        BingMapsKey = sessionKey
+        
+                Query = address,
+                IncludeIso2 = true,
+                IncludeNeighborhood = true,
+                MaxResults = 1,
+                BingMapsKey = sessionKey
 
-        //    };
+            };
 
-        //    var response = await request.Execute();
+            var response = await request.Execute();
 
-        //    if (response != null &&
-        //        response.ResourceSets != null &&
-        //        response.ResourceSets.Length > 0 &&
-        //        response.ResourceSets[0].Resources != null &&
-        //        response.ResourceSets[0].Resources.Length > 0)
-        //    {
-        //        var result = response.ResourceSets[0].Resources[0] as BingMapsRESTToolkit.Location;
+            if (response != null &&
+                response.ResourceSets != null &&
+                response.ResourceSets.Length > 0 &&
+                response.ResourceSets[0].Resources != null &&
+                response.ResourceSets[0].Resources.Length > 0)
+            {
+                var result = response.ResourceSets[0].Resources[0] as BingMapsRESTToolkit.Location;
 
 
 
-        //        Pushpin pin = new Pushpin();
+             
 
-        //        double latitude = result.Point.Coordinates[0];
-        //        double longitude = result.Point.Coordinates[1];
-        //        pin.Location.Latitude = latitude;
-        //        pin.Location.Longitude = longitude;
+                double lattitude = result.Point.Coordinates[0];
+                double longitude = result.Point.Coordinates[1];
 
-        //        pin.Name = plantName;
-        //        pin.ToolTip = pin.Name;
-        //        mainMap.Children.Add(pin);
-        //       // pin.Location =;
+                Microsoft.Maps.MapControl.WPF.Location loc = new Microsoft.Maps.MapControl.WPF.Location(lattitude, longitude);
+                mainMap.SetView(loc, 8.0);
+           
 
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Address not found");
-        //    }
-        //}
+            }
+            else
+            {
+                MessageBox.Show("Address not found");
+            }
+        }
 
         private void addPlantMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -187,11 +174,17 @@ namespace plant_locator_tool
             window.Show();
         }
 
+
+        private void searchButton_Click(object sender, RoutedEventArgs e)
+        {
+            SearchView(searchBar.Text);
+        }
+
         private void quitMenuItem_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
 
-        //create pin method here
+       
     }
 }

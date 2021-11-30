@@ -49,17 +49,16 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="1">
       
-            <TextBox Grid.Row="1" Grid.Column="0" Width="50" Height="15" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="1,11,5,0"/>
-            <Button Grid.Row="1" Grid.Column="0" Content="Search:" Grid.ColumnSpan="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,8,0,0"/>
+            <TextBox x:Name="searchBar" Grid.Row="1" Grid.Column="0" Width="50" Height="15" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="1,11,5,0"/>
+            <Button x:Name="searchButton" Click="searchButton_Click" Grid.Row="1" Grid.Column="0" Content="Search:" Grid.ColumnSpan="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,8,0,0"/>
     
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="0" Grid.RowSpan="2">
             <Label Foreground="White" x:Name="plantNameLabel" Content="Plant Name"/>
-            <Label Foreground="White" Content="Address"/>
-            <Label Foreground="White" Content="Contact Information"/>
-            <Label Foreground="White" Content="Production Information"/>
-            <Label Foreground="White" Content="Sourced By"/>
+            <Label Foreground="White" x:Name="phoneNumberLabel" Content="Phone Number"/>
+            <Label Foreground="White" x:Name="addressLabel" Content="Address"/>
+            <Label Foreground="White" x:Name="productionInfoLabel" Content="Production Information"/>
             <Label Foreground="White" Content="Last Updated (Date/User)"/>
             
 
