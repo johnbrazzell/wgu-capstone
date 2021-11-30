@@ -114,6 +114,9 @@
     <Compile Include="Plant.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserViewModel.cs" />
+    <Compile Include="ViewPlantsWindow.xaml.cs">
+      <DependentUpon>ViewPlantsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewUsersWindow.xaml.cs">
       <DependentUpon>ViewUsersWindow.xaml</DependentUpon>
     </Compile>
@@ -153,6 +156,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MapWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewPlantsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

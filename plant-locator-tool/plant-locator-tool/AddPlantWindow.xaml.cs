@@ -26,6 +26,7 @@ namespace plant_locator_tool
         string _sessionKey;
         MapWindow _mapWindow;
         Pushpin _pin;
+        int _lastID;
         public AddPlantWindow(MapWindow mapWindow)
         {
             InitializeComponent();
@@ -92,11 +93,15 @@ namespace plant_locator_tool
                 //MessageBox.Show("Lat: " + latitude.ToString() + "Long:" + longitude.ToString());
                 AddPlantToDatabase(latitude, longitude);
 
-                _pin.Location = newLocation;
+                _mapWindow.AddPinToMap(_lastID, latitude, longitude);
 
-                _pin.Content = plantNameTextbox.Text;
-                _pin.ToolTip = _pin.Content;
-                _mapWindow.mainMap.Children.Add(_pin);
+                //_pin.Uid = _lastID.ToString();
+                //_pin.Location = newLocation;
+               
+                ////_pin.Name = _lastID.ToString();
+                //_pin.Content = plantNameTextbox.Text;
+                //_pin.ToolTip = _pin.Content;
+                //_mapWindow.mainMap.Children.Add(_pin);
 
 
                 
@@ -136,6 +141,8 @@ namespace plant_locator_tool
             {
                 addPlantCommand.ExecuteNonQuery();
                 MessageBox.Show("Plant added!");
+                
+                _lastID = (int)addPlantCommand.LastInsertedId;
                 //call pin function on main map instead of handling here
                 //this way each new pin can be registered to an OnClickEvent
                 //Loading pins should be handled on the main map
@@ -144,6 +151,7 @@ namespace plant_locator_tool
             {
                 MessageBox.Show(exception.Message);
                 MessageBox.Show(exception.ToString());
+                return;
             }
         }
     }

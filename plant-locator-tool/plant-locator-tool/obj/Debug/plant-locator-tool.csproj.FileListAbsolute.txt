@@ -96,3 +96,5 @@ C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-to
 C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\EditUserWindow.baml
 C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\ChangePasswordWindow.g.cs
 C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\ChangePasswordWindow.baml
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\ViewPlantsWindow.g.cs
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\ViewPlantsWindow.baml
