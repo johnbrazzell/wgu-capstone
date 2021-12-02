@@ -95,12 +95,12 @@ namespace plant_locator_tool
         }
 
 
-        static public void ExecuteQuery(string query)
-        {
-            MySqlCommand command = _connection.CreateCommand();
-            command.CommandText = query;
-            MySqlDataReader reader = command.ExecuteReader();
-        }
+        //static public void ExecuteQuery(string query)
+        //{
+        //    MySqlCommand command = _connection.CreateCommand();
+        //    command.CommandText = query;
+        //    MySqlDataReader reader = command.ExecuteReader();
+        //}
 
 
         static public bool VerifyLogin(string userName, string password)

@@ -61,7 +61,21 @@ namespace plant_locator_tool
             pin.MouseDown += Pin_MouseDown;
             mainMap.Children.Add(pin);
 
+            
 
+        }
+
+
+        public void RemovePinFromMap(int id)
+        {
+            for(int i = 0; i < mainMap.Children.Count; i++)
+            {
+                if(mainMap.Children[i].Uid == id.ToString())
+                {
+                    Pushpin pinToRemove = mainMap.Children[i] as Pushpin;
+                    mainMap.Children.Remove(pinToRemove);
+                }
+            }
         }
 
 
@@ -180,7 +194,7 @@ namespace plant_locator_tool
 
         private void viewPlantMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            ViewPlantsWindow window = new ViewPlantsWindow();
+            ViewPlantsWindow window = new ViewPlantsWindow(this);
             window.Show();
         }
     }

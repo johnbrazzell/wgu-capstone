@@ -6,13 +6,16 @@ using System.Threading.Tasks;
 
 namespace plant_locator_tool
 {
-    class Plant
+    public class Plant
     {
-        int PlantID { get; set; }
-        string PlantName { get; set; }
-        string PlantAddress { get; set; }
-        string PhoneNumber { get; set; }
-        string ProductionInformation { get; set; }
-       // string 
+        public int PlantID { get; set; }
+        public string PlantName { get; set; }
+        public string PlantAddress { get; set; }
+        public string PhoneNumber { get; set; }
+        public string ProductionInformation { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+
+ 
     }
 }

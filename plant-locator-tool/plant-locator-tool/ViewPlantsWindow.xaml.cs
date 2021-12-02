@@ -21,16 +21,37 @@ namespace plant_locator_tool
     /// </summary>
     public partial class ViewPlantsWindow : Window
     {
-        public ViewPlantsWindow()
+        private MapWindow _window;
+        public ViewPlantsWindow(MapWindow window)
         {
             InitializeComponent();
             FillGrid();
             plantListView.SelectionMode = SelectionMode.Single;
+            _window = window;
         }
 
         private void editPlantButton_Click(object sender, RoutedEventArgs e)
         {
-            //
+            if(plantListView.SelectedItem != null)
+            {
+                Plant selectedPlant = new Plant();
+                DataRowView rowView = plantListView.SelectedItem as DataRowView;
+
+                if(rowView != null)
+                {
+                    selectedPlant.PlantID = Int32.Parse(rowView.Row.ItemArray[0].ToString());
+                    selectedPlant.PlantName = rowView.Row.ItemArray[1].ToString();
+                    selectedPlant.PlantAddress = rowView.Row.ItemArray[2].ToString();
+                    selectedPlant.PhoneNumber = rowView.Row.ItemArray[3].ToString();
+
+
+                }
+                
+                EditPlantWindow window = new EditPlantWindow(this, selectedPlant);
+                window.Show();
+            }
+
+
         }
 
         private void deletePlantButton_Click(object sender, RoutedEventArgs e)
@@ -49,6 +70,7 @@ namespace plant_locator_tool
                 try
                 {
                     deleteCommand.ExecuteNonQuery();
+                    _window.RemovePinFromMap(plantID);
                 }
                 catch (MySqlException exception)
                 {
@@ -56,6 +78,7 @@ namespace plant_locator_tool
                 }
 
             }
+           
 
 
             //Update the grid

@@ -1,0 +1,39 @@
+﻿<Window x:Class="plant_locator_tool.EditPlantWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:plant_locator_tool"
+        mc:Ignorable="d"
+        Title="Edit Plant" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" HorizontalAlignment="Center">
+
+            <Label Content="Name:" />
+            <Label Content="Phone Number:" />
+            <Label Content="Products Produced:"/>
+            <Label Content="Street"/>
+            <Label Content="City"/>
+            <Label Content="State"/>
+            <Label Content="Zip"/>
+            <Button x:Name="updatePlantbutton" Content="Update" Click="updatePlantbutton_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+
+            <TextBox x:Name="plantNameTextbox" Margin="10"/>
+            <TextBox x:Name="phoneNumberTextbox" Margin="10"/>
+            <TextBox x:Name="productsProducedTextbox" Margin="10"/>
+            <TextBox x:Name="streetTextbox" Margin="10"/>
+            <TextBox x:Name="cityTextbox" Margin="10"/>
+            <TextBox x:Name="stateTextbox" Margin="10"/>
+            <TextBox x:Name="zipTextBox" Margin="10"/>
+
+            <Button x:Name="cancelButton" Content="Cancel" Click="cancelButton_Click"/>
+
+        </StackPanel>
+    </Grid>
+</Window>
