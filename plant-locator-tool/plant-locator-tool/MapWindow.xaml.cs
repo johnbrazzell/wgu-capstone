@@ -32,12 +32,18 @@ namespace plant_locator_tool
         public string testLat = String.Empty;
         public string testLong = String.Empty;
 
-        string sessionKey;
+        private string sessionKey;
+        private Pushpin _searchPin = new Pushpin();
       
 
         public MapWindow()
         {
             InitializeComponent();
+            //Set the search pin to the color green
+            _searchPin.Background = new SolidColorBrush(Color.FromArgb(120, 0, 255, 0));
+            _searchPin.Name = "searchPin";
+                
+
             if(!DBHelper.GetAdminStatus())
             {
                 adminOptions.IsEnabled = false;
@@ -104,14 +110,50 @@ namespace plant_locator_tool
             
             if(sender is Pushpin)
             {
+                // TODO ADD QUERY TO PULL DATA AND ADD TO SIDE BAR
                 Pushpin clickedPin = sender as Pushpin;
                 clickedPin.ReleaseMouseCapture();
                 plantNameLabel.Content = clickedPin.Uid;
+                int id = Int32.Parse(clickedPin.Uid);
+
+                if(clickedPin.Name != _searchPin.Name)
+                {
+                    LoadPlantData(id);
+                }
                 
             }
         }
 
-        private async void SearchView(string address)
+        private void LoadPlantData(int id)
+        {
+            MySqlCommand command = DBHelper.GetConnection().CreateCommand();
+            command.CommandText = "SELECT * FROM plant_location WHERE plantID=@plantID";
+            command.Parameters.AddWithValue("@plantID", id);
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            if(reader.HasRows)
+            {
+                while(reader.Read())
+                {
+                    //Populate side panel with plant data from selected pin
+                    plantNameLabel.Content = reader["plantName"];
+                    phoneNumberLabel.Content = reader["phoneNumber"];
+                    streetLabel.Content = reader["street"];
+                    cityLabel.Content = reader["city"];
+                    stateLabel.Content = reader["state"];
+                    zipLabel.Content = reader["zip"];
+                }
+
+                reader.Close();
+            }
+            else
+            {
+                reader.Close();
+            }
+        }
+
+        private async void AddressSearch(string address)
         {
 
             var request = new GeocodeRequest()
@@ -144,7 +186,17 @@ namespace plant_locator_tool
                 double longitude = result.Point.Coordinates[1];
 
                 Microsoft.Maps.MapControl.WPF.Location loc = new Microsoft.Maps.MapControl.WPF.Location(lattitude, longitude);
-                mainMap.SetView(loc, 8.0);
+                
+
+                //Add a temporary marker to the map based on users search
+                if(_searchPin.Location != loc)
+                {
+                    mainMap.Children.Remove(_searchPin);
+                    _searchPin.Location = loc;
+                    mainMap.Children.Add(_searchPin);
+                    mainMap.SetView(_searchPin.Location, 8.0);
+                }
+                
            
 
             }
@@ -184,7 +236,16 @@ namespace plant_locator_tool
 
         private void searchButton_Click(object sender, RoutedEventArgs e)
         {
-            SearchView(searchBar.Text);
+
+            if(String.IsNullOrEmpty(searchBar.Text))
+            {
+                return;
+            }
+            else
+            {
+
+                AddressSearch(searchBar.Text);
+            }
         }
 
         private void quitMenuItem_Click(object sender, RoutedEventArgs e)

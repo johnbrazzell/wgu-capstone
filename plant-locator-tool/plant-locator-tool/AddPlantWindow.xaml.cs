@@ -44,22 +44,23 @@ namespace plant_locator_tool
         private void addPlantButton_Click(object sender, RoutedEventArgs e)
         {
 
-            BingMapsRequest newRequest = new BingMapsRequest();
-            string addressQuery = $"{streetTextbox.Text} {cityTextbox.Text} {stateTextbox.Text} {zipTextBox.Text}";
-            newRequest.GeocodeAddress(_sessionKey, addressQuery);
-
-            Microsoft.Maps.MapControl.WPF.Location newLocation = new Microsoft.Maps.MapControl.WPF.Location(newRequest.Latitude, newRequest.Longitude);
-
-            AddPlantToDatabase(newRequest.Latitude, newRequest.Longitude);
-
-            _mapWindow.AddPinToMap(_lastID, newRequest.Latitude, newRequest.Longitude);
-
+           
 
             //geocode the address and save to DB
-            //GeocodeAddress();
+            GeocodeAddress();
 
 
         }
+
+        //private async void Request()
+        //{
+        //    string addressQuery = $"{streetTextbox.Text} {cityTextbox.Text} {stateTextbox.Text} {zipTextBox.Text}";
+        //    BingMapsRequest newRequest = new BingMapsRequest();
+        //    var request = await newRequest.GeocodeAddress(_sessionKey, addressQuery);
+        //    Microsoft.Maps.MapControl.WPF.Location newLocation = new Microsoft.Maps.MapControl.WPF.Location(request[0], request[1]);
+        //    AddPlantToDatabase(request[0], request[1]);
+        //    _mapWindow.AddPinToMap(_lastID, request[0], request[1]);
+        //}
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
@@ -69,12 +70,12 @@ namespace plant_locator_tool
 
         public async void GeocodeAddress()
         {
-          
+
 
             var request = new GeocodeRequest()
             {
 
-           
+
                 Query = $"{streetTextbox.Text} {cityTextbox.Text} {stateTextbox.Text} {zipTextBox.Text}",
                 IncludeIso2 = true,
                 IncludeNeighborhood = true,
@@ -95,7 +96,7 @@ namespace plant_locator_tool
 
 
 
-                
+
 
                 double latitude = result.Point.Coordinates[0];
                 double longitude = result.Point.Coordinates[1];
@@ -109,9 +110,9 @@ namespace plant_locator_tool
 
                 this.Close();
 
-             
 
-                
+
+
 
             }
             else

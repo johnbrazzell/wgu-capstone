@@ -57,7 +57,11 @@
         <StackPanel Grid.Row="2" Grid.Column="0" Grid.RowSpan="2">
             <Label Foreground="White" x:Name="plantNameLabel" Content="Plant Name"/>
             <Label Foreground="White" x:Name="phoneNumberLabel" Content="Phone Number"/>
-            <Label Foreground="White" x:Name="addressLabel" Content="Address"/>
+            <Label Foreground="White" x:Name="streetLabel" Content="Street"/>
+            <Label Foreground="White" x:Name="cityLabel" Content="City"/>
+            <Label Foreground="White" x:Name="stateLabel" Content="State"/>
+            <Label Foreground="White" x:Name="zipLabel" Content="Zip"/>
+     
             <Label Foreground="White" x:Name="productionInfoLabel" Content="Production Information"/>
             <Label Foreground="White" Content="Last Updated (Date/User)"/>
             
