@@ -22,6 +22,8 @@ namespace plant_locator_tool
     {
         ViewPlantsWindow _window;
         Plant _plant;
+
+        //string 
         public EditPlantWindow(ViewPlantsWindow window, Plant plant)
         {
             InitializeComponent();

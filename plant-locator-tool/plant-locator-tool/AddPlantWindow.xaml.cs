@@ -44,8 +44,19 @@ namespace plant_locator_tool
         private void addPlantButton_Click(object sender, RoutedEventArgs e)
         {
 
+            BingMapsRequest newRequest = new BingMapsRequest();
+            string addressQuery = $"{streetTextbox.Text} {cityTextbox.Text} {stateTextbox.Text} {zipTextBox.Text}";
+            newRequest.GeocodeAddress(_sessionKey, addressQuery);
+
+            Microsoft.Maps.MapControl.WPF.Location newLocation = new Microsoft.Maps.MapControl.WPF.Location(newRequest.Latitude, newRequest.Longitude);
+
+            AddPlantToDatabase(newRequest.Latitude, newRequest.Longitude);
+
+            _mapWindow.AddPinToMap(_lastID, newRequest.Latitude, newRequest.Longitude);
+
+
             //geocode the address and save to DB
-            GeocodeAddress();
+            //GeocodeAddress();
 
 
         }
