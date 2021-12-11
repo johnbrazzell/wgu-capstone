@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace plant_locator_tool
 {
@@ -19,39 +20,65 @@ namespace plant_locator_tool
     /// </summary>
     public partial class EditPlantWindow : Window
     {
+        ViewPlantsWindow _window;
+        Plant _plant;
         public EditPlantWindow(ViewPlantsWindow window, Plant plant)
         {
             InitializeComponent();
-            //need to split address string
-            //consider moving address to its own database
-            //address format order
-            //street, city, state, zip
-            string[] splitAddress = plant.PlantAddress.Split(' ');
+   
+            _window = window;
+            _plant = plant;
 
-            //fill form with values
+         
             plantNameTextbox.Text = plant.PlantName;
             phoneNumberTextbox.Text = plant.PhoneNumber;
             productsProducedTextbox.Text = plant.ProductionInformation;
-            streetTextbox.Text = splitAddress[0];
-            cityTextbox.Text = splitAddress[1];
-            stateTextbox.Text = splitAddress[2];
-            zipTextBox.Text = splitAddress[3];
+            streetTextbox.Text = plant.Street;
+            cityTextbox.Text = plant.City;
+            stateTextbox.Text = plant.State;
+            zipTextBox.Text = plant.Zip;
 
+            //if the address changes need to query bing maps again to get new lat/long
         }
 
         private void updatePlantbutton_Click(object sender, RoutedEventArgs e)
         {
 
+            MySqlCommand command = DBHelper.GetConnection().CreateCommand();
+            command.CommandText = "UPDATE plant_location SET plantName=@plantName, phoneNumber=@phoneNumber," +
+                "productionInfo=@productionInfo, street=@street, city=@city, state=@state, zip=@zip," +
+                "updatedBy=@updatedBy, updatedDate=@updatedDate WHERE plantID=@plantID";
+            command.Parameters.AddWithValue("@plantName", plantNameTextbox.Text);
+            command.Parameters.AddWithValue("@phoneNumber", phoneNumberTextbox.Text);
+            command.Parameters.AddWithValue("@productionInfo", productsProducedTextbox.Text);
+            command.Parameters.AddWithValue("@street", streetTextbox.Text);
+            command.Parameters.AddWithValue("@city", cityTextbox.Text);
+            command.Parameters.AddWithValue("@state", stateTextbox.Text);
+            command.Parameters.AddWithValue("@zip", zipTextBox.Text);
+            command.Parameters.AddWithValue("@updatedBy", DBHelper.GetCurrentUser());
+            command.Parameters.AddWithValue("@updatedDate", DateTime.Now);
+            command.Parameters.AddWithValue("@plantID", _plant.PlantID);
+
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (MySqlException exception)
+            {
+                MessageBox.Show(exception.ToString());
+                return;
+            }
+
+
+            _window.FillGrid();
+
+            this.Close();
         }
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
-        private void FillForm()
-        {
-
-        }
     }
 }

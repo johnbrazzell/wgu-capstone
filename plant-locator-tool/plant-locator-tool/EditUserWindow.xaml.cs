@@ -71,7 +71,7 @@ namespace plant_locator_tool
             catch (MySqlException exception)
             {
                 MessageBox.Show(exception.ToString());
-                return; // Return to give user a chance to correct errors
+                return; 
             }
             parentWindow.FillGrid();
 

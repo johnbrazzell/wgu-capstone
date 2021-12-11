@@ -39,10 +39,16 @@ namespace plant_locator_tool
 
                 if(rowView != null)
                 {
+                    
+
                     selectedPlant.PlantID = Int32.Parse(rowView.Row.ItemArray[0].ToString());
                     selectedPlant.PlantName = rowView.Row.ItemArray[1].ToString();
-                    selectedPlant.PlantAddress = rowView.Row.ItemArray[2].ToString();
-                    selectedPlant.PhoneNumber = rowView.Row.ItemArray[3].ToString();
+                    selectedPlant.Street = rowView.Row.ItemArray[2].ToString();
+                    selectedPlant.City = rowView.Row.ItemArray[3].ToString();
+                    selectedPlant.State = rowView.Row.ItemArray[4].ToString();
+                    selectedPlant.Zip = rowView.Row.ItemArray[5].ToString();
+                    selectedPlant.PhoneNumber = rowView.Row.ItemArray[6].ToString();
+                 
 
 
                 }
@@ -92,16 +98,19 @@ namespace plant_locator_tool
 
         public void FillGrid()
         {
+
+            
            
-            DataTable dataTable = new DataTable();
+            DataTable dt = new DataTable();
             
             MySqlConnection connection = DBHelper.GetConnection();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             
-            adapter.SelectCommand = new MySqlCommand("SELECT plantID, plantName, plantAddress, phoneNumber, updatedBy, updatedDate FROM plant_location", connection);
-            adapter.Fill(dataTable);
-            plantListView.ItemsSource = dataTable.DefaultView;
-            plantListView.DataContext = dataTable;
+            adapter.SelectCommand = new MySqlCommand("SELECT plantID, plantName, street, city, state, zip, phoneNumber, createdBy, creationDate, updatedBy, updatedDate FROM plant_location", connection);
+            
+            adapter.Fill(dt);
+            plantListView.ItemsSource = dt.DefaultView;
+            plantListView.DataContext = dt;
 
 
         }

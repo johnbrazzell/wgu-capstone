@@ -113,16 +113,20 @@ namespace plant_locator_tool
         private void AddPlantToDatabase(double lattitude, double longitude)
         {
             MySqlCommand addPlantCommand = DBHelper.GetConnection().CreateCommand();
-            addPlantCommand.CommandText = "INSERT INTO plant_location (plantName, plantAddress, phoneNumber, " +
+            addPlantCommand.CommandText = "INSERT INTO plant_location (plantName, street, city, state, zip, phoneNumber, " +
                 "productionInfo, createdBy, creationDate, updatedBy, updatedDate, lattitude, longitude) " +
-                "VALUES(@plantName, @plantAddress, @phoneNumber, @productionInfo, @creationUsername," +
+                "VALUES(@plantName, @street, @city, @state, @zip, @phoneNumber, @productionInfo, @creationUsername," +
                 "@creationDate, @updatedUsername, @updatedDate," +
                 "@lattitude, @longitude)";
 
-            string plantAddress = $"{streetTextbox.Text} {cityTextbox.Text} {stateTextbox.Text} {zipTextBox.Text}";
+            //string plantAddress = $"{streetTextbox.Text} {cityTextbox.Text} {stateTextbox.Text} {zipTextBox.Text}";
 
             addPlantCommand.Parameters.AddWithValue("@plantName", plantNameTextbox.Text);
-            addPlantCommand.Parameters.AddWithValue("@plantAddress", plantAddress);
+            //addPlantCommand.Parameters.AddWithValue("@plantAddress", plantAddress);
+            addPlantCommand.Parameters.AddWithValue("@street", streetTextbox.Text);
+            addPlantCommand.Parameters.AddWithValue("@city", cityTextbox.Text);
+            addPlantCommand.Parameters.AddWithValue("@state", stateTextbox.Text);
+            addPlantCommand.Parameters.AddWithValue("@zip", zipTextBox.Text);
             addPlantCommand.Parameters.AddWithValue("@phoneNumber", phoneNumberTextbox.Text);
             addPlantCommand.Parameters.AddWithValue("@productionInfo", productsProducedTextbox.Text);
             addPlantCommand.Parameters.AddWithValue("@creationUsername", DBHelper.GetCurrentUser());

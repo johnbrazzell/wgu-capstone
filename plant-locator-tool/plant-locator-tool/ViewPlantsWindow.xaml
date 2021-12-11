@@ -12,8 +12,13 @@
                 <GridView>
                 <GridViewColumn DisplayMemberBinding="{Binding Path=plantID}" Header="Plant ID"/>
                 <GridViewColumn DisplayMemberBinding="{Binding Path=plantName}"  Header="Plant Name"/>
-                <GridViewColumn DisplayMemberBinding="{Binding Path=plantAddress}"  Header="Plant Address"/>
+                <GridViewColumn DisplayMemberBinding="{Binding Path=street}"  Header="Street"/>
+                <GridViewColumn DisplayMemberBinding="{Binding Path=city}"  Header="City"/>
+                <GridViewColumn DisplayMemberBinding="{Binding Path=state}"  Header="State"/>
+                <GridViewColumn DisplayMemberBinding="{Binding Path=zip}"  Header="Zip"/>
                 <GridViewColumn DisplayMemberBinding="{Binding Path=phoneNumber}"  Header="Phone Number"/>
+                <GridViewColumn DisplayMemberBinding="{Binding Path=createdBy}"  Header="Created By"/>
+                <GridViewColumn DisplayMemberBinding="{Binding Path=creationDate}"  Header="Creation Date"/>
                 <GridViewColumn DisplayMemberBinding="{Binding Path=updatedBy}" Header="Updated By"/>
                 <GridViewColumn DisplayMemberBinding="{Binding Path=updatedDate}" Header="Update Date"/>
             </GridView>
