@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,5 +59,31 @@ namespace plant_locator_tool
             reportDataGrid.ItemsSource = dt.DefaultView;
 
         }
+
+
+        private void exportCSVButton_Click(object sender, RoutedEventArgs e)
+        {
+            reportDataGrid.SelectAllCells();
+            reportDataGrid.ClipboardCopyMode = DataGridClipboardCopyMode.IncludeHeader;
+            ApplicationCommands.Copy.Execute(null, reportDataGrid);
+            reportDataGrid.UnselectAllCells();
+
+            string result = (string)System.Windows.Clipboard.GetData(System.Windows.DataFormats.CommaSeparatedValue);
+
+            try
+            {
+                StreamWriter streamWriter = new StreamWriter("reportdata.csv");
+                streamWriter.WriteLine(result);
+                streamWriter.Close();
+                Process.Start("reportdata.csv");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return;
+            }
+        }
+
+     
     }
 }

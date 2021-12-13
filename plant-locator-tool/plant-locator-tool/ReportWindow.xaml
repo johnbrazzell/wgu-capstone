@@ -14,6 +14,8 @@
         <DataGrid x:Name="reportDataGrid" HorizontalAlignment="Left" Height="229" Margin="320,70,0,0" VerticalAlignment="Top" Width="360" Grid.RowSpan="2"/>
         <Button x:Name="plantsByCreationDateButton" Content="Plants By Creation Date" Click="plantsByCreationDateButton_Click" HorizontalAlignment="Left" Margin="28,98,0,0" VerticalAlignment="Top" Width="250" Height="58"/>
         <Button x:Name="numberOfPlantsByUserButton" Content="Number of Plants Created By User" Click="numberOfPlantsByUserButton_Click" HorizontalAlignment="Left" Margin="28,230,0,0" VerticalAlignment="Top" Width="250" Height="58" Grid.RowSpan="2"/>
+        <Button Content="Export CSV" x:Name="exportCSVButton" Click="exportCSVButton_Click" HorizontalAlignment="Left" Margin="565,88,0,0" Grid.Row="1" VerticalAlignment="Top" Width="115" Height="47"/>
+        <Button Content="Close" HorizontalAlignment="Left" Margin="420,88,0,0" Grid.Row="1" VerticalAlignment="Top" Width="115" Height="47"/>
 
     </Grid>
 </Window>
