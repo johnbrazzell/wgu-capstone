@@ -23,6 +23,7 @@ namespace plant_locator_tool
     /// </summary>
     public partial class ReportWindow : Window
     {
+        private string _docPath = Environment.CurrentDirectory;
         public ReportWindow()
         {
             InitializeComponent();
@@ -63,27 +64,42 @@ namespace plant_locator_tool
 
         private void exportCSVButton_Click(object sender, RoutedEventArgs e)
         {
-            reportDataGrid.SelectAllCells();
-            reportDataGrid.ClipboardCopyMode = DataGridClipboardCopyMode.IncludeHeader;
-            ApplicationCommands.Copy.Execute(null, reportDataGrid);
-            reportDataGrid.UnselectAllCells();
 
-            string result = (string)System.Windows.Clipboard.GetData(System.Windows.DataFormats.CommaSeparatedValue);
-
-            try
+            if (reportDataGrid.Items.Count != 0)
             {
-                StreamWriter streamWriter = new StreamWriter("reportdata.csv");
-                streamWriter.WriteLine(result);
-                streamWriter.Close();
-                Process.Start("reportdata.csv");
+
+
+                reportDataGrid.SelectAllCells();
+                reportDataGrid.ClipboardCopyMode = DataGridClipboardCopyMode.IncludeHeader;
+                ApplicationCommands.Copy.Execute(null, reportDataGrid);
+                reportDataGrid.UnselectAllCells();
+
+                string result = (string)System.Windows.Clipboard.GetData(System.Windows.DataFormats.CommaSeparatedValue);
+
+                try
+                {
+
+                    StreamWriter streamWriter = new StreamWriter("reportdata.csv");
+                    streamWriter.WriteLine(result);
+                    streamWriter.Close();
+                    Process.Start("reportdata.csv");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                    return;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.ToString());
                 return;
             }
+            
         }
 
-     
+        private void closeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
