@@ -193,6 +193,7 @@ namespace plant_locator_tool
                 {
                     mainMap.Children.Remove(_searchPin);
                     _searchPin.Location = loc;
+                    _searchPin.ToolTip = searchBar.Text;
                     mainMap.Children.Add(_searchPin);
                     mainMap.SetView(_searchPin.Location, 8.0);
                 }
@@ -256,6 +257,12 @@ namespace plant_locator_tool
         private void viewPlantMenuItem_Click(object sender, RoutedEventArgs e)
         {
             ViewPlantsWindow window = new ViewPlantsWindow(this);
+            window.Show();
+        }
+
+        private void reportsMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            ReportWindow window = new ReportWindow();
             window.Show();
         }
     }

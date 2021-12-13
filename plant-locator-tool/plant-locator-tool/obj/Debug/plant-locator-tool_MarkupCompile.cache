@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\App.xaml
-9-183768816
+10565188123
 
-171000566694
+18-609525546
 1381261554048
-AddPlantWindow.xaml;AddUserWindow.xaml;ChangePasswordWindow.xaml;EditPlantWindow.xaml;EditUserWindow.xaml;MainWindow.xaml;MapWindow.xaml;ViewPlantsWindow.xaml;ViewUsersWindow.xaml;
+AddPlantWindow.xaml;AddUserWindow.xaml;ChangePasswordWindow.xaml;EditPlantWindow.xaml;EditUserWindow.xaml;MainWindow.xaml;MapWindow.xaml;ReportWindow.xaml;ViewPlantsWindow.xaml;ViewUsersWindow.xaml;
 
 False
 

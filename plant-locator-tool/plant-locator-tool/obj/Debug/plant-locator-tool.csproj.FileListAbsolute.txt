@@ -100,3 +100,5 @@ C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-to
 C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\ViewPlantsWindow.baml
 C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\EditPlantWindow.g.cs
 C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\EditPlantWindow.baml
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\ReportWindow.g.cs
+C:\Users\jbraz\Documents\GitHub\wgu-capstone\plant-locator-tool\plant-locator-tool\obj\Debug\ReportWindow.baml

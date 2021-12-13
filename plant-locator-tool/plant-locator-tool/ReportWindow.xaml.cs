@@ -1,0 +1,61 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
+
+namespace plant_locator_tool
+{
+    /// <summary>
+    /// Interaction logic for ReportWindow.xaml
+    /// </summary>
+    public partial class ReportWindow : Window
+    {
+        public ReportWindow()
+        {
+            InitializeComponent();
+        }
+
+        private void plantsByCreationDateButton_Click(object sender, RoutedEventArgs e)
+        {
+            MySqlConnection connection = DBHelper.GetConnection();
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            adapter.SelectCommand = new MySqlCommand("SELECT plantID, plantName, creationDate FROM plant_location ORDER BY creationDate DESC", connection);
+
+            DataTable dt = new DataTable();
+
+            adapter.Fill(dt);
+
+            reportDataGrid.DataContext = dt;
+            reportDataGrid.ItemsSource = dt.DefaultView;
+
+        }
+
+        private void numberOfPlantsByUserButton_Click(object sender, RoutedEventArgs e)
+        {
+            MySqlConnection connection = DBHelper.GetConnection();
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            adapter.SelectCommand = new MySqlCommand("SELECT createdBy, COUNT(*) AS numPlantsCreated FROM plant_location GROUP BY createdBy", connection);
+
+            DataTable dt = new DataTable();
+
+            adapter.Fill(dt);
+
+            reportDataGrid.DataContext = dt;
+            reportDataGrid.ItemsSource = dt.DefaultView;
+
+        }
+    }
+}
