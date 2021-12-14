@@ -55,8 +55,16 @@ namespace plant_locator_tool
 
                 }
                 
-                EditPlantWindow window = new EditPlantWindow(this, selectedPlant);
-                window.Show();
+                if(WindowOpenCheck.IsWindowOpen("EditPlantWindow"))
+                {
+                    return;
+                }
+                else
+                {
+                    EditPlantWindow window = new EditPlantWindow(this, selectedPlant);
+                    window.Show();
+                }
+                
             }
 
 
@@ -67,7 +75,9 @@ namespace plant_locator_tool
             MySqlCommand deleteCommand = DBHelper.GetConnection().CreateCommand();
             deleteCommand.CommandText = "DELETE FROM plant_location WHERE plantID=@id";
 
-            DataRowView rowView = plantListView.SelectedItem as DataRowView;
+            DataRowView rowView = plantListView.SelectedItem as DataRowView
+
+            
             if (rowView != null)
             {
                 string id = rowView.Row.ItemArray[0].ToString();

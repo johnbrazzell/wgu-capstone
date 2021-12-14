@@ -23,18 +23,18 @@ using BingMapsRESTToolkit;
 
 namespace plant_locator_tool
 {
-   
+
     public partial class MapWindow : Window
     {
-        
-       //Chose the map start location to center on the middle of the U.S.  
-       // Location startLocation = new Location(44.967243, -103.77155);
+
+        //Chose the map start location to center on the middle of the U.S.  
+        // Location startLocation = new Location(44.967243, -103.77155);
         public string testLat = String.Empty;
         public string testLong = String.Empty;
 
         private string sessionKey;
         private Pushpin _searchPin = new Pushpin();
-      
+
 
         public MapWindow()
         {
@@ -42,9 +42,9 @@ namespace plant_locator_tool
             //Set the search pin to the color green
             _searchPin.Background = new SolidColorBrush(Color.FromArgb(120, 0, 255, 0));
             _searchPin.Name = "searchPin";
-                
 
-            if(!DBHelper.GetAdminStatus())
+
+            if (!DBHelper.GetAdminStatus())
             {
                 adminOptions.IsEnabled = false;
             }
@@ -67,16 +67,16 @@ namespace plant_locator_tool
             pin.MouseDown += Pin_MouseDown;
             mainMap.Children.Add(pin);
 
-            
+
 
         }
 
 
         public void RemovePinFromMap(int id)
         {
-            for(int i = 0; i < mainMap.Children.Count; i++)
+            for (int i = 0; i < mainMap.Children.Count; i++)
             {
-                if(mainMap.Children[i].Uid == id.ToString())
+                if (mainMap.Children[i].Uid == id.ToString())
                 {
                     Pushpin pinToRemove = mainMap.Children[i] as Pushpin;
                     mainMap.Children.Remove(pinToRemove);
@@ -92,13 +92,13 @@ namespace plant_locator_tool
 
             MySqlDataReader reader = command.ExecuteReader();
 
-            while(reader.Read())
+            while (reader.Read())
             {
                 string id = reader["plantID"].ToString();
                 string lat = reader["lattitude"].ToString();
                 string longit = reader["longitude"].ToString();
 
-               
+
                 AddPinToMap(Int32.Parse(id), Double.Parse(lat), Double.Parse(longit));
             }
 
@@ -107,8 +107,8 @@ namespace plant_locator_tool
 
         private void Pin_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            
-            if(sender is Pushpin)
+
+            if (sender is Pushpin)
             {
                 // TODO ADD QUERY TO PULL DATA AND ADD TO SIDE BAR
                 Pushpin clickedPin = sender as Pushpin;
@@ -116,11 +116,11 @@ namespace plant_locator_tool
                 plantNameLabel.Content = clickedPin.Uid;
                 int id = Int32.Parse(clickedPin.Uid);
 
-                if(clickedPin.Name != _searchPin.Name)
+                if (clickedPin.Name != _searchPin.Name)
                 {
                     LoadPlantData(id);
                 }
-                
+
             }
         }
 
@@ -132,9 +132,9 @@ namespace plant_locator_tool
 
             MySqlDataReader reader = command.ExecuteReader();
 
-            if(reader.HasRows)
+            if (reader.HasRows)
             {
-                while(reader.Read())
+                while (reader.Read())
                 {
                     //Populate side panel with plant data from selected pin
                     plantNameLabel.Content = "Plant Name: " + reader["plantName"];
@@ -162,7 +162,7 @@ namespace plant_locator_tool
             var request = new GeocodeRequest()
             {
 
-        
+
                 Query = address,
                 IncludeIso2 = true,
                 IncludeNeighborhood = true,
@@ -183,16 +183,16 @@ namespace plant_locator_tool
 
 
 
-             
+
 
                 double lattitude = result.Point.Coordinates[0];
                 double longitude = result.Point.Coordinates[1];
 
                 Microsoft.Maps.MapControl.WPF.Location loc = new Microsoft.Maps.MapControl.WPF.Location(lattitude, longitude);
-                
+
 
                 //Add a temporary marker to the map based on users search
-                if(_searchPin.Location != loc)
+                if (_searchPin.Location != loc)
                 {
                     mainMap.Children.Remove(_searchPin);
                     _searchPin.Location = loc;
@@ -200,8 +200,8 @@ namespace plant_locator_tool
                     mainMap.Children.Add(_searchPin);
                     mainMap.SetView(_searchPin.Location, 8.0);
                 }
-                
-           
+
+
 
             }
             else
@@ -212,29 +212,61 @@ namespace plant_locator_tool
 
         private void addPlantMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            AddPlantWindow plantWindow = new AddPlantWindow(this);
-            plantWindow.Show();
-       
+            if(WindowOpenCheck.IsWindowOpen("AddUserWindow"))
+            {
+                return;
+            }
+            else
+            {
+                AddPlantWindow plantWindow = new AddPlantWindow(this);
+                plantWindow.Show();
+
+            }
+
         }
 
         private void addUserMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            AddUserWindow addUserWindow = new AddUserWindow();
+        { 
+            if(WindowOpenCheck.IsWindowOpen("AddUserWindow"))
+            {
+                return;
+            }
+            else
+            {
 
-            addUserWindow.Show();
+                AddUserWindow addUserWindow = new AddUserWindow();
+                addUserWindow.Show();
+            }
         }
 
         private void viewUsersMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            ViewUsersWindow viewUserWindow = new ViewUsersWindow();
-            viewUserWindow.Show();
+
+            if(WindowOpenCheck.IsWindowOpen("ViewUsersWindow"))
+            {
+                return;
+            }
+            else
+            {
+                ViewUsersWindow viewUserWindow = new ViewUsersWindow();
+                viewUserWindow.Show();
+            }
+
         }
 
         private void changePasswordMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            
-            ChangePasswordWindow window = new ChangePasswordWindow();
-            window.Show();
+         
+            if(WindowOpenCheck.IsWindowOpen("ChangePasswordWindow"))
+            {
+                return;
+            }
+            else
+            {
+                ChangePasswordWindow window = new ChangePasswordWindow();
+                window.Show();
+            }
+       
         }
 
 
@@ -259,14 +291,34 @@ namespace plant_locator_tool
 
         private void viewPlantMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            ViewPlantsWindow window = new ViewPlantsWindow(this);
-            window.Show();
+
+            
+
+            if(WindowOpenCheck.IsWindowOpen("ViewPlantsWindow"))
+            {
+                return;
+            }
+            else
+            {
+                ViewPlantsWindow window = new ViewPlantsWindow(this);
+                window.Show();
+            }
+ 
+          
         }
 
         private void reportsMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            ReportWindow window = new ReportWindow();
-            window.Show();
+            if(WindowOpenCheck.IsWindowOpen("ReportWindow"))
+            {
+                return;
+            }
+            else
+            {
+                ReportWindow window = new ReportWindow();
+                Show();
+            }
+          
         }
     }
 }

@@ -125,6 +125,7 @@
     <Compile Include="ViewUsersWindow.xaml.cs">
       <DependentUpon>ViewUsersWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowOpenCheck.cs" />
     <Page Include="AddPlantWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

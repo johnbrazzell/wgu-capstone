@@ -73,9 +73,18 @@ namespace plant_locator_tool
                     //selectedUser.LastLogin = DateTime.Parse(rowView.Row.ItemArray[3].ToString());
                 }
 
-                //open edit user window
-                EditUserWindow editUser = new EditUserWindow(this, selectedUser);
-                editUser.Show();
+
+                if(WindowOpenCheck.IsWindowOpen("EditUserWindow"))
+                {
+                    return;
+                }
+                else
+                {
+
+                    EditUserWindow editUser = new EditUserWindow(this, selectedUser);
+                    editUser.Show();
+                }
+               
             }
         }
 
