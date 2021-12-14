@@ -48,6 +48,8 @@ namespace plant_locator_tool
                     selectedPlant.State = rowView.Row.ItemArray[4].ToString();
                     selectedPlant.Zip = rowView.Row.ItemArray[5].ToString();
                     selectedPlant.PhoneNumber = rowView.Row.ItemArray[6].ToString();
+                    selectedPlant.ProductionInformation = rowView.Row.ItemArray[7].ToString();
+                    
                  
 
 
@@ -106,7 +108,7 @@ namespace plant_locator_tool
             MySqlConnection connection = DBHelper.GetConnection();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             
-            adapter.SelectCommand = new MySqlCommand("SELECT plantID, plantName, street, city, state, zip, phoneNumber, createdBy, creationDate, updatedBy, updatedDate FROM plant_location", connection);
+            adapter.SelectCommand = new MySqlCommand("SELECT plantID, plantName, street, city, state, zip, phoneNumber, productionInfo, createdBy, creationDate, updatedBy, updatedDate FROM plant_location", connection);
             
             adapter.Fill(dt);
             plantListView.ItemsSource = dt.DefaultView;

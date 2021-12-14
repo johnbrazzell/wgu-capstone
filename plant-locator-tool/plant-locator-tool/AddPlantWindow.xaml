@@ -5,35 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:plant_locator_tool"
         mc:Ignorable="d"
-        Title="AddPlantWindow" Height="450" Width="400">
+        Title="AddPlantWindow" Height="350" Width="325" Background="#3b3b3b" Foreground="White" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" HorizontalAlignment="Center">
-         
-        <Label Content="Name:" />
-        <Label Content="Phone Number:" />
-        <Label Content="Products Produced:"/>
-        <Label Content="Street"/>
-        <Label Content="City"/>
-        <Label Content="State"/>
-        <Label Content="Zip"/>
-        <Button x:Name="addPlantButton" Content="Add" Click="addPlantButton_Click"/>
-        </StackPanel>
-        <StackPanel Grid.Column="1">
-        
-            <TextBox x:Name="plantNameTextbox" Margin="10"/>
-            <TextBox x:Name="phoneNumberTextbox" Margin="10"/>
-            <TextBox x:Name="productsProducedTextbox" Margin="10"/>
-            <TextBox x:Name="streetTextbox" Margin="10"/>
-            <TextBox x:Name="cityTextbox" Margin="10"/>
-            <TextBox x:Name="stateTextbox" Margin="10"/>
-            <TextBox x:Name="zipTextBox" Margin="10"/>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
 
-            <Button x:Name="cancelButton" Content="Cancel" Click="cancelButton_Click"/>
+        <Label Foreground="White" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0"  Content="Name:" />
+        <Label Foreground="White" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1"  Content="Phone Number:" />
+        <Label Foreground="White" VerticalAlignment="Center" Grid.Column="0" Grid.Row="2"  Content="Products Produced:"/>
+        <Label Foreground="White" VerticalAlignment="Center" Grid.Column="0" Grid.Row="3"  Content="Street"/>
+        <Label Foreground="White" VerticalAlignment="Center" Grid.Column="0" Grid.Row="4"  Content="City"/>
+        <Label Foreground="White" VerticalAlignment="Center" Grid.Column="0" Grid.Row="5"  Content="State"/>
+        <Label Foreground="White" VerticalAlignment="Center" Grid.Column="0" Grid.Row="6"  Content="Zip"/>
+        <Button Margin="30, 10, 30, 10" VerticalAlignment="Center" Grid.Column="0" Grid.Row="7"  x:Name="addPlantButton" Content="Add" Click="addPlantButton_Click"/>
 
-    </StackPanel>
+
+        <TextBox Grid.Column="1" Grid.Row="0" x:Name="plantNameTextbox" Margin="10"/>
+        <TextBox Grid.Column="1" Grid.Row="1" x:Name="phoneNumberTextbox" Margin="10"/>
+        <TextBox Grid.Column="1" Grid.Row="2" x:Name="productsProducedTextbox" Margin="10"/>
+        <TextBox Grid.Column="1" Grid.Row="3" x:Name="streetTextbox" Margin="10"/>
+        <TextBox Grid.Column="1" Grid.Row="4" x:Name="cityTextbox" Margin="10"/>
+        <TextBox Grid.Column="1" Grid.Row="5" x:Name="stateTextbox" MaxLength="2" Margin="10"/>
+        <TextBox Grid.Column="1" Grid.Row="6" x:Name="zipTextBox" MaxLength="5" Margin="10"/>
+        <Button Margin="30, 10, 30, 10" Grid.Column="1" Grid.Row="7"  x:Name="cancelButton" Content="Cancel" Click="cancelButton_Click"/>
+
+
     </Grid>
 </Window>

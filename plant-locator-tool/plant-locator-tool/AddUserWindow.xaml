@@ -5,16 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:plant_locator_tool"
         mc:Ignorable="d"
-        Title="Add User" Height="450" Width="800">
-    <StackPanel>
-        <Label Content="Username"></Label>
-        <TextBox x:Name="usernameTextBox"></TextBox>
-        <Label Content="Password"></Label>
-        <PasswordBox x:Name="passwordBox"></PasswordBox>
-        <Label Content="Admin"/>
-        <CheckBox x:Name="isAdminCheckbox"/>
+        Title="Add User" Height="275" Width="320" ResizeMode="CanMinimize">
 
-        <Button x:Name="addUserButton" Click="addUserButton_Click" Content="Add" />
-        <Button x:Name="cancelButton" Click="cancelButton_Click" Content="Cancel" />
-    </StackPanel>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" Content="Username"></Label>
+        <TextBox Margin="10, 15, 10, 15"  Grid.Column="1" Grid.Row="0" x:Name="usernameTextBox"></TextBox>
+
+        <Label  VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Content="Password"></Label>
+        <PasswordBox Margin="10, 15, 10, 15" Grid.Column="1" Grid.Row="1" x:Name="passwordBox"></PasswordBox>
+
+        <Label VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" Content="Admin"/>
+        <CheckBox VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" x:Name="isAdminCheckbox"/>
+
+        <Button Margin="10" Grid.Column="0" Grid.Row="3" x:Name="addUserButton" Click="addUserButton_Click" Content="Add" />
+        <Button Margin="10" Grid.Column="1" Grid.Row="3" x:Name="cancelButton" Click="cancelButton_Click" Content="Cancel" />
+    </Grid>
 </Window>

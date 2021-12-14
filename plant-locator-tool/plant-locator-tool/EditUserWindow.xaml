@@ -5,14 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:plant_locator_tool"
         mc:Ignorable="d"
-        Title="EditUserWindow" Height="450" Width="800">
-    <StackPanel>
-        <Label x:Name="nameOfUserLabel" Content="Update with username"/>
-        <Label Content="Change Username:"/>
-        <TextBox x:Name="usernameTextBox"/>
-        <Label Content="Change Admin Status"/>
-        <CheckBox x:Name="isAdminCheckBox"/>
-        <Button x:Name="saveButton" Content="Save" Click="saveButton_Click"/>
-        <Button x:Name="cancelButton" Content="Cancel" Click="cancelButton_Click"/>
-    </StackPanel>
+        Title="Edit User" Height="275" Width="320" Background="#3b3b3b" Foreground="White" ResizeMode="CanMinimize">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Foreground="White" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" x:Name="nameOfUserLabel" Content=""/>
+        <Label Foreground="White" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Content="Change Username To:"/>
+        <TextBox Margin="10, 15, 10, 15" Grid.Column="1" Grid.Row="1" x:Name="usernameTextBox"/>
+        <Label Foreground="White" VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" Content="Change Admin Status:"/>
+        <CheckBox VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" x:Name="isAdminCheckBox"/>
+        <Button Margin="20, 10, 20, 10" Grid.Column="0" Grid.Row="3" x:Name="saveButton" Content="Save" Click="saveButton_Click"/>
+        <Button Margin="20, 10, 20, 10" Grid.Column="1" Grid.Row="3" x:Name="cancelButton" Content="Cancel" Click="cancelButton_Click"/>
+    </Grid>
+
 </Window>

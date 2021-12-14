@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:plant_locator_tool"
         mc:Ignorable="d"
-        Title="Edit Plant" Height="350" Width="325" ResizeMode="CanMinimize">
-    <Grid>
+        Title="Edit Plant" Height="350" Width="325" Background="#3b3b3b" Foreground="White" ResizeMode="CanMinimize">
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -21,15 +21,15 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        
-            <Label VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" Content="Name:" />
-            <Label VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Content="Phone Number:" />
-            <Label VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" Content="Products Produced:"/>
-            <Label VerticalAlignment="Center" Grid.Column="0" Grid.Row="3" Content="Street"/>
-            <Label VerticalAlignment="Center" Grid.Column="0" Grid.Row="4" Content="City"/>
-            <Label VerticalAlignment="Center" Grid.Column="0" Grid.Row="5" Content="State"/>
-            <Label VerticalAlignment="Center" Grid.Column="0" Grid.Row="6" Content="Zip"/>
-            <Button Margin="30, 10, 30, 10" Grid.Column="0" Grid.Row="7" x:Name="updatePlantbutton" Content="Update" Click="updatePlantbutton_Click"/>
+
+        <Label Foreground="White" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" Content="Name:" />
+        <Label Foreground="White" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Content="Phone Number:" />
+        <Label Foreground="White" VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" Content="Products Produced:"/>
+        <Label Foreground="White" VerticalAlignment="Center" Grid.Column="0" Grid.Row="3" Content="Street"/>
+        <Label Foreground="White" VerticalAlignment="Center" Grid.Column="0" Grid.Row="4" Content="City"/>
+        <Label Foreground="White" VerticalAlignment="Center" Grid.Column="0" Grid.Row="5" Content="State"/>
+        <Label Foreground="White" VerticalAlignment="Center" Grid.Column="0" Grid.Row="6" Content="Zip"/>
+        <Button Margin="30, 10, 30, 10" Grid.Column="0" Grid.Row="7" x:Name="updatePlantbutton" Content="Update" Click="updatePlantbutton_Click"/>
 
 
 
@@ -38,8 +38,8 @@
             <TextBox Grid.Column="1" Grid.Row="2" x:Name="productsProducedTextbox" Margin="10"/>
             <TextBox Grid.Column="1" Grid.Row="3" x:Name="streetTextbox" Margin="10"/>
             <TextBox Grid.Column="1" Grid.Row="4" x:Name="cityTextbox" Margin="10"/>
-            <TextBox Grid.Column="1" Grid.Row="5" x:Name="stateTextbox" Margin="10"/>
-            <TextBox Grid.Column="1" Grid.Row="6" x:Name="zipTextBox" Margin="10"/>
+            <TextBox Grid.Column="1" Grid.Row="5" x:Name="stateTextbox" MaxLength="2" Margin="10"/>
+            <TextBox Grid.Column="1" Grid.Row="6" x:Name="zipTextBox" MaxLength="5" Margin="10"/>
 
             <Button Margin="30, 10, 30, 10" Grid.Column="1" Grid.Row="7" x:Name="cancelButton" Content="Cancel" Click="cancelButton_Click"/>
 

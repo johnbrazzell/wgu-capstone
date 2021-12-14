@@ -28,17 +28,20 @@ namespace plant_locator_tool
             InitializeComponent();
             FillGrid();
             userListView.SelectionMode = SelectionMode.Single;
+            
         }
 
         public void FillGrid()
         {
             DataTable dt = new DataTable();
+            
             MySqlConnection connection = DBHelper.GetConnection();
-            MySqlDataAdapter adapater = new MySqlDataAdapter();
-            adapater.SelectCommand = new MySqlCommand("SELECT userID, username, isAdmin, lastLogin FROM plant_locator_db.user", connection);
-            adapater.Fill(dt);
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            adapter.SelectCommand = new MySqlCommand("SELECT userID, username, isAdmin, lastLogin FROM plant_locator_db.user", connection);
+            adapter.Fill(dt);
             userListView.ItemsSource = dt.DefaultView;
             userListView.DataContext = dt;
+           
             
             
         }

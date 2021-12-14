@@ -137,12 +137,15 @@ namespace plant_locator_tool
                 while(reader.Read())
                 {
                     //Populate side panel with plant data from selected pin
-                    plantNameLabel.Content = reader["plantName"];
-                    phoneNumberLabel.Content = reader["phoneNumber"];
-                    streetLabel.Content = reader["street"];
-                    cityLabel.Content = reader["city"];
-                    stateLabel.Content = reader["state"];
-                    zipLabel.Content = reader["zip"];
+                    plantNameLabel.Content = "Plant Name: " + reader["plantName"];
+                    phoneNumberLabel.Content = "Plant Phone: " + reader["phoneNumber"];
+                    streetLabel.Content = "Plant Street: " + reader["street"];
+                    cityLabel.Content = "Plant City: " + reader["city"];
+                    stateLabel.Content = "Plant State: " + reader["state"];
+                    zipLabel.Content = "Plant Zip: " + reader["zip"];
+                    productionInfoLabel.Content = "Produces: " + reader["productionInfo"];
+                    lastUpdatedByLabel.Content = "Last Updated By: " + reader["updatedBy"];
+                    lastUpdatedDateLabel.Content = "Update Date: " + reader["updatedDate"];
                 }
 
                 reader.Close();

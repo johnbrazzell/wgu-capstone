@@ -5,23 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:plant_locator_tool" xmlns:wpf="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
         mc:Ignorable="d"
-        Title="Plant Locator" Height="450" Width="800">
+        Title="Plant Locator" Height="450" Width="800" ResizeMode="CanMinimize" Background="#3b3b3b" Foreground="White">
 
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="15*"></ColumnDefinition>
+            <ColumnDefinition Width="10*"></ColumnDefinition>
+            <ColumnDefinition Width="10*"></ColumnDefinition>
             <ColumnDefinition Width="50*"></ColumnDefinition>
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="5*"></RowDefinition>
-            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
             <RowDefinition Height="60*"></RowDefinition>
 
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="1"
+        <!--<Grid Grid.Row="1"
           Grid.Column="0"
           Background="#3b3b3b" />
 
@@ -29,10 +30,24 @@
           Grid.Column="0"
           Background="#3b3b3b" />
 
-        <DockPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Background="#3b3b3b">
-            <Menu DockPanel.Dock="Top" Background="#3b3b3b">
-                <MenuItem Header="File" Foreground="White" Background="#3b3b3b">
-                    <MenuItem Header="Admin Options" x:Name="adminOptions" Background="#3b3b3b" Foreground="White">
+
+        <Grid Grid.Row="2"
+          Grid.Column="1"
+          Background="#3b3b3b" />
+
+
+        <Grid Grid.Row="1"
+          Grid.Column="1"
+          Background="#3b3b3b" />
+
+        <Grid Grid.Row="0"
+          Grid.Column="2"
+          Background="#3b3b3b" />-->
+
+        <DockPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"  >
+            <Menu DockPanel.Dock="Top" Background="#3b3b3b" BorderBrush="#3b3b3b" BorderThickness="0">
+                <MenuItem Header="File" Foreground="White" Background="#3b3b3b" BorderBrush="#3b3b3b">
+                    <MenuItem Header="Admin Options" x:Name="adminOptions" Background="#3b3b3b" Foreground="White" BorderBrush="#3b3b3b" BorderThickness="0">
                         <MenuItem Header="Add Plant"  x:Name="addPlantMenuItem" Click="addPlantMenuItem_Click" Background="#3b3b3b" Foreground="White"></MenuItem>
                         <MenuItem Header="View Plants" x:Name="viewPlantMenuItem" Click="viewPlantMenuItem_Click" Background="#3b3b3b" Foreground="White"></MenuItem>
                         <MenuItem Header="Add User" x:Name="addUserMenuItem" Click="addUserMenuItem_Click" Background="#3b3b3b"></MenuItem>
@@ -48,26 +63,24 @@
         </DockPanel>
 
 
-        <StackPanel Orientation="Horizontal" Grid.Row="1">
+        
 
-            <TextBox x:Name="searchBar" Grid.Row="1" Grid.Column="0" Width="104" Height="18" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="1,10,5,0"/>
-            <Button x:Name="searchButton" Click="searchButton_Click" Content="Search:" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,8,0,0" Width="67"/>
+        <TextBox x:Name="searchBar" Grid.Row="1" Grid.Column="0" Width="Auto" Height="Auto" MinHeight="20" MinWidth="80" MaxWidth="150" MaxHeight="40" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10, 5, 10, 5"/>
+        <Button x:Name="searchButton" Grid.Row="1" Width="Auto" Height="Auto" Grid.Column="1" Click="searchButton_Click" Content="Search" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0" />
 
-        </StackPanel>
+       
 
-        <StackPanel Grid.Row="2" Grid.Column="0" Grid.RowSpan="2">
-            <Label Foreground="White" x:Name="plantNameLabel" />
-            <Label Foreground="White" x:Name="phoneNumberLabel" />
-            <Label Foreground="White" x:Name="streetLabel" />
-            <Label Foreground="White" x:Name="cityLabel" />
-           
-            <Label Foreground="White" x:Name="stateLabel" />
-            <Label Foreground="White" x:Name="zipLabel" />
-                
-          
-
-            <Label Foreground="White" x:Name="productionInfoLabel"/>
-            <Label Foreground="White" x:Name="lastUpdatedByLabel"/>
+        <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <Label Content="Plant Information Panel" Foreground="White" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <Label Foreground="White" x:Name="plantNameLabel" Content="Plant Name:" />
+            <Label Foreground="White" x:Name="phoneNumberLabel" Content="Plant Phone:" />
+            <Label Foreground="White" x:Name="streetLabel" Content="Plant Street:" />
+            <Label Foreground="White" x:Name="cityLabel" Content="Plant City:" />
+            <Label Foreground="White" x:Name="stateLabel" Content="Plant State:" />
+            <Label Foreground="White" x:Name="zipLabel" Content="Plant Zip:"/>
+            <Label Foreground="White" x:Name="productionInfoLabel" Content="Produces:"/>
+            <Label Foreground="White" x:Name="lastUpdatedByLabel" Content="Last Updated By: "/>
+            <Label Foreground="White" x:Name="lastUpdatedDateLabel" Content="Update Date: "/>
 
 
         </StackPanel>

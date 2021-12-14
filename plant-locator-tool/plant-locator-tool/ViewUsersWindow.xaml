@@ -5,20 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:plant_locator_tool"
         mc:Ignorable="d"
-        Title="View Users" Height="450" Width="800">
+        Title="View Users" Height="288.773" Width="368.942" Background="#3b3b3b" Foreground="White"  ResizeMode="CanMinimize">
     <StackPanel>
-        <ListView x:Name="userListView" ItemsSource="{Binding }" Height="200" Width="500">
+        <ListView x:Name="userListView" ItemsSource="{Binding }" Height="200" Width="Auto" Margin="18,0,10,0">
             <ListView.View>
                 <GridView x:Name="gridView" AllowsColumnReorder="False">
-                <GridViewColumn DisplayMemberBinding="{Binding Path=userID}" Header="User ID"/>
-                <GridViewColumn DisplayMemberBinding="{Binding Path=username}" Header="Username"/>
-                <GridViewColumn DisplayMemberBinding="{Binding Path=isAdmin}" Header="Admin Status"/>
-                <GridViewColumn DisplayMemberBinding="{Binding Path=lastLogin}" Header="Last Login"/>
-            </GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=userID}" Header="User ID"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=username}" Header="Username"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=isAdmin}" Header="Admin Status"/>
+                    <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding Path=lastLogin}" Header="Last Login"/>
+                </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="editUserButton" Content="Edit User" Click="editUserButton_Click"/>
-        <Button x:Name="deleteUserButton" Content="Delete User" Click="deleteUserButton_Click"/>
-        <Button x:Name="cancelButton" Content="Cancel" Click="cancelButton_Click"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Margin="10" Grid.Column="0" x:Name="editUserButton" Content="Edit User" Click="editUserButton_Click"/>
+            <Button Margin="10"  Grid.Column="1" x:Name="deleteUserButton" Content="Delete User" Click="deleteUserButton_Click"/>
+            <Button Margin="10"  Grid.Column="2" x:Name="cancelButton" Content="Close" Click="cancelButton_Click"/>
+        </Grid>
     </StackPanel>
 </Window>

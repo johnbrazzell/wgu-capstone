@@ -38,7 +38,8 @@ namespace plant_locator_tool
             _window = window;
             _plant = plant;
 
-            _initialAddress = $"{streetTextbox.Text} {cityTextbox.Text} {stateTextbox.Text} {zipTextBox.Text}";
+            _initialAddress = $"{_plant.Street} {_plant.City} {_plant.State} {_plant.Zip}";
+            MessageBox.Show(_initialAddress);
 
             plantNameTextbox.Text = plant.PlantName;
             phoneNumberTextbox.Text = plant.PhoneNumber;
@@ -47,6 +48,7 @@ namespace plant_locator_tool
             cityTextbox.Text = plant.City;
             stateTextbox.Text = plant.State;
             zipTextBox.Text = plant.Zip;
+            productsProducedTextbox.Text = plant.ProductionInformation;
 
             //if the address changes need to query bing maps again to get new lat/long
 
@@ -60,8 +62,8 @@ namespace plant_locator_tool
             if(HasAddressChanged())
             {
                 GeocodeAddress();
-                UpdateWithAddressChanged();
-                UpdatePushPin();
+                //UpdateWithAddressChanged();
+                //UpdatePushPin();
             }
             else
             {
@@ -114,7 +116,7 @@ namespace plant_locator_tool
         {
             string updatedAddress = $"{streetTextbox.Text} {cityTextbox.Text} {stateTextbox.Text} {zipTextBox.Text}";
 
-            if(_initialAddress.Equals(updatedAddress))
+            if(_initialAddress == updatedAddress)
             {
                 return false;
             }
@@ -126,6 +128,7 @@ namespace plant_locator_tool
 
         private void UpdateWithAddressChanged()
         {
+            
 
             MySqlCommand command = DBHelper.GetConnection().CreateCommand();
             command.CommandText = "UPDATE plant_location SET plantName=@plantName, phoneNumber=@phoneNumber," +
@@ -191,6 +194,8 @@ namespace plant_locator_tool
                 _longitude = result.Point.Coordinates[1];
 
                
+                UpdateWithAddressChanged();
+                UpdatePushPin();
             }
 
       
