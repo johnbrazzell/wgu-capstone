@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:plant_locator_tool"
         mc:Ignorable="d"
-        Title="Reports" Height="451.226" Width="617.303" ResizeMode="CanMinimize">
+        Title="Reports" Height="434.06" Width="779.156" Background="#3b3b3b" Foreground="White" ResizeMode="CanMinimize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="84*"/>
@@ -16,13 +16,13 @@
             <RowDefinition Height="235*"/>
             <RowDefinition Height="184*"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="reportDataGrid" HorizontalAlignment="Left" Height="229" Margin="209.943,50,0,0" VerticalAlignment="Top" Width="241" Grid.RowSpan="2" Grid.Column="1"/>
+        <DataGrid x:Name="reportDataGrid" HorizontalAlignment="Left" Height="229" Margin="210,50,0,0" VerticalAlignment="Top" Width="370" Grid.RowSpan="2" Grid.Column="1"/>
         <Button x:Name="plantsByCreationDateButton" Content="Generate Report" Click="plantsByCreationDateButton_Click" HorizontalAlignment="Left" Margin="42,100,0,0" VerticalAlignment="Top" Width="116" Height="42" Grid.ColumnSpan="2"/>
         <Button x:Name="numberOfPlantsByUserButton" Content="Generate Report" Click="numberOfPlantsByUserButton_Click" HorizontalAlignment="Left" Margin="42,211,0,0" VerticalAlignment="Top" Width="116" Height="42" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-        <Button Content="Export CSV" x:Name="exportCSVButton" Click="exportCSVButton_Click" HorizontalAlignment="Left" Margin="335.943,59,0,0" Grid.Row="1" VerticalAlignment="Top" Width="115" Height="47" Grid.Column="1"/>
+        <Button Content="Export CSV" x:Name="exportCSVButton" Click="exportCSVButton_Click" HorizontalAlignment="Left" Margin="465,59,0,0" Grid.Row="1" VerticalAlignment="Top" Width="115" Height="47" Grid.Column="1"/>
         <Button Content="Close" HorizontalAlignment="Left" x:Name="closeButton" Click="closeButton_Click" Margin="209.943,59,0,0" Grid.Row="1" VerticalAlignment="Top" Width="115" Height="47" Grid.Column="1"/>
-        <Label Content="List Plants By Creation Date" HorizontalAlignment="Left" Margin="12,67,0,0" VerticalAlignment="Top" Height="28" Width="186" FontSize="14" Grid.ColumnSpan="2"/>
-        <Label Content="Number Of Plants Created By User" HorizontalAlignment="Left" Margin="12,169,0,0" VerticalAlignment="Top" Height="28" Width="234" FontSize="14" Grid.ColumnSpan="2"/>
+        <Label Content="List Plants by Creation Date" HorizontalAlignment="Left" Margin="12,67,0,0" VerticalAlignment="Top" Height="28" Width="186" Foreground="White" FontSize="14" Grid.ColumnSpan="2"/>
+        <Label Content="Number of Plants Created by User" HorizontalAlignment="Left" Margin="12,169,0,0" VerticalAlignment="Top" Foreground="White" Height="28" Width="234" FontSize="14" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>

@@ -50,8 +50,8 @@ namespace plant_locator_tool
              * CHANGE USERID AND PASSWORD BEFORE EVALUATING
              * SET TO YOUR LOCAL MYSQL WORKBENCH ID AND PASSWORD
              */
-            connectionString.UserID = "root";
-            connectionString.Password = "#90BakeFree36";
+            connectionString.UserID = "";
+            connectionString.Password = "";
             /*
              * 
              */

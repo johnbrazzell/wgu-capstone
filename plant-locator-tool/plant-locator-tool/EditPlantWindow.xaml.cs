@@ -97,6 +97,7 @@ namespace plant_locator_tool
             try
             {
                 command.ExecuteNonQuery();
+                MessageBox.Show("Plant Updated!");
             }
             catch (MySqlException exception)
             {
@@ -149,6 +150,7 @@ namespace plant_locator_tool
             try
             {
                 command.ExecuteNonQuery();
+                MessageBox.Show("Plant Updated!");
             }
             catch (MySqlException exception)
             {

@@ -32,7 +32,7 @@
         <Button Margin="30, 10, 30, 10" VerticalAlignment="Center" Grid.Column="0" Grid.Row="7"  x:Name="addPlantButton" Content="Add" Click="addPlantButton_Click"/>
 
 
-        <TextBox Grid.Column="1" Grid.Row="0" x:Name="plantNameTextbox" Margin="10" TextChanged="plantNameTextbox_TextChanged"/>
+        <TextBox Grid.Column="1" Grid.Row="0" x:Name="plantNameTextbox" Margin="10"/>
         <TextBox Grid.Column="1" Grid.Row="1" x:Name="phoneNumberTextbox" Margin="10" MaxLength="12"/>
         <TextBox Grid.Column="1" Grid.Row="2" x:Name="productsProducedTextbox" Margin="10" Height="50" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" MaxLength="100"/>
         <TextBox Grid.Column="1" Grid.Row="3" x:Name="streetTextbox" Margin="10"/>

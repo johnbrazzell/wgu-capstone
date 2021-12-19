@@ -28,7 +28,7 @@ namespace plant_locator_tool
         MapWindow _mapWindow;
         Pushpin _pin;
         int _lastID;
-        private bool _areFormsEmpty = true;
+        
         public AddPlantWindow(MapWindow mapWindow)
         {
             InitializeComponent();
@@ -165,17 +165,7 @@ namespace plant_locator_tool
 
 
 
-        private void plantNameTextbox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if(String.IsNullOrEmpty(plantNameTextbox.Text))
-            {
-                _areFormsEmpty = true;
-            }
-            else
-            {
-                _areFormsEmpty = false;
-            }
-        }
+
 
         private void CheckCoordinates(double pinLat, double pinLong)
         {
