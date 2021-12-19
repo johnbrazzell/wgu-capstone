@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:plant_locator_tool"
         mc:Ignorable="d"
-        Title="AddPlantWindow" Height="350" Width="325" Background="#3b3b3b" Foreground="White" >
+        Title="AddPlantWindow" Height="400" Width="325" Background="#3b3b3b" Foreground="White" ResizeMode="CanMinimize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -14,7 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -32,13 +32,13 @@
         <Button Margin="30, 10, 30, 10" VerticalAlignment="Center" Grid.Column="0" Grid.Row="7"  x:Name="addPlantButton" Content="Add" Click="addPlantButton_Click"/>
 
 
-        <TextBox Grid.Column="1" Grid.Row="0" x:Name="plantNameTextbox" Margin="10"/>
-        <TextBox Grid.Column="1" Grid.Row="1" x:Name="phoneNumberTextbox" Margin="10"/>
-        <TextBox Grid.Column="1" Grid.Row="2" x:Name="productsProducedTextbox" Margin="10"/>
+        <TextBox Grid.Column="1" Grid.Row="0" x:Name="plantNameTextbox" Margin="10" TextChanged="plantNameTextbox_TextChanged"/>
+        <TextBox Grid.Column="1" Grid.Row="1" x:Name="phoneNumberTextbox" Margin="10" MaxLength="12"/>
+        <TextBox Grid.Column="1" Grid.Row="2" x:Name="productsProducedTextbox" Margin="10" Height="50" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" MaxLength="100"/>
         <TextBox Grid.Column="1" Grid.Row="3" x:Name="streetTextbox" Margin="10"/>
         <TextBox Grid.Column="1" Grid.Row="4" x:Name="cityTextbox" Margin="10"/>
-        <TextBox Grid.Column="1" Grid.Row="5" x:Name="stateTextbox" MaxLength="2" Margin="10"/>
-        <TextBox Grid.Column="1" Grid.Row="6" x:Name="zipTextBox" MaxLength="5" Margin="10"/>
+        <TextBox Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Stretch" x:Name="stateTextbox" MaxLength="2" Margin="50,11"/>
+        <TextBox Grid.Column="1" Grid.Row="6" x:Name="zipTextBox" VerticalAlignment="Center" HorizontalAlignment="Stretch" MaxLength="5" Margin="50,10,50,11" />
         <Button Margin="30, 10, 30, 10" Grid.Column="1" Grid.Row="7"  x:Name="cancelButton" Content="Cancel" Click="cancelButton_Click"/>
 
 

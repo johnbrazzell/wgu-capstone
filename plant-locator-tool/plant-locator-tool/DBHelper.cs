@@ -43,13 +43,20 @@ namespace plant_locator_tool
 
         static public void OpenConnection()
         {
-            //TODO Add connection string information
+       
             MySqlConnectionStringBuilder connectionString = new MySqlConnectionStringBuilder();
             connectionString.Server = "127.0.0.1";
+            /*
+             * CHANGE USERID AND PASSWORD BEFORE EVALUATING
+             * SET TO YOUR LOCAL MYSQL WORKBENCH ID AND PASSWORD
+             */
             connectionString.UserID = "root";
+            connectionString.Password = "#90BakeFree36";
+            /*
+             * 
+             */
             connectionString.Port = 3306;
             connectionString.Database = "plant_locator_db";
-            connectionString.Password = "#90BakeFree36";
             connectionString.AllowUserVariables = true;
 
             _connection = new MySqlConnection(connectionString.ToString());
@@ -95,12 +102,7 @@ namespace plant_locator_tool
         }
 
 
-        //static public void ExecuteQuery(string query)
-        //{
-        //    MySqlCommand command = _connection.CreateCommand();
-        //    command.CommandText = query;
-        //    MySqlDataReader reader = command.ExecuteReader();
-        //}
+
 
 
         static public bool VerifyLogin(string userName, string password)
@@ -152,23 +154,6 @@ namespace plant_locator_tool
         }
 
 
-        //public static void CheckAdminStatus(string username)
-        //{
-        //    MySqlCommand adminCheckCommand = _connection.CreateCommand();
-        //    adminCheckCommand.CommandText = "SELECT isAdmin FROM user WHERE username=@username";
-        //    adminCheckCommand.Parameters.AddWithValue("@username", username);
-
-        //    MySqlDataReader adminReader = adminCheckCommand.ExecuteReader();
-
-        //    while(adminReader.Read())
-        //    {
-        //        _isAdmin = adminReader.GetFieldValue<bool>(4);
-        //        return _isAdmin;
-        //        adminReader.Close();
-        //        break;
-        //    }
-
-        //}
 
         private static void CreateLoginTimestamp(string username)
         {

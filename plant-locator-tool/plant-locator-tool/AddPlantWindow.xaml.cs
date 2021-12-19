@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using BingMapsRESTToolkit;
 using MySql.Data.MySqlClient;
 using Microsoft.Maps.MapControl.WPF;
+using System.Diagnostics;
 
 namespace plant_locator_tool
 {
@@ -27,6 +28,7 @@ namespace plant_locator_tool
         MapWindow _mapWindow;
         Pushpin _pin;
         int _lastID;
+        private bool _areFormsEmpty = true;
         public AddPlantWindow(MapWindow mapWindow)
         {
             InitializeComponent();
@@ -43,24 +45,13 @@ namespace plant_locator_tool
 
         private void addPlantButton_Click(object sender, RoutedEventArgs e)
         {
-
-           
-
-            //geocode the address and save to DB
-            GeocodeAddress();
-
-
+            if(IsFormValidated())
+            {
+                GeocodeAddress();
+            }
         }
 
-        //private async void Request()
-        //{
-        //    string addressQuery = $"{streetTextbox.Text} {cityTextbox.Text} {stateTextbox.Text} {zipTextBox.Text}";
-        //    BingMapsRequest newRequest = new BingMapsRequest();
-        //    var request = await newRequest.GeocodeAddress(_sessionKey, addressQuery);
-        //    Microsoft.Maps.MapControl.WPF.Location newLocation = new Microsoft.Maps.MapControl.WPF.Location(request[0], request[1]);
-        //    AddPlantToDatabase(request[0], request[1]);
-        //    _mapWindow.AddPinToMap(_lastID, request[0], request[1]);
-        //}
+
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
@@ -101,12 +92,20 @@ namespace plant_locator_tool
                 double latitude = result.Point.Coordinates[0];
                 double longitude = result.Point.Coordinates[1];
 
+
+
+
                 Microsoft.Maps.MapControl.WPF.Location newLocation = new Microsoft.Maps.MapControl.WPF.Location(latitude, longitude);
 
                 AddPlantToDatabase(latitude, longitude);
 
                 _mapWindow.AddPinToMap(_lastID, latitude, longitude);
 
+                /*
+                 * CheckCoordinates is a test method
+                 * Uncomment to run test when adding plant
+                 */
+                //CheckCoordinates(latitude, longitude);
 
                 this.Close();
 
@@ -131,10 +130,9 @@ namespace plant_locator_tool
                 "@creationDate, @updatedUsername, @updatedDate," +
                 "@lattitude, @longitude)";
 
-            //string plantAddress = $"{streetTextbox.Text} {cityTextbox.Text} {stateTextbox.Text} {zipTextBox.Text}";
+    
 
             addPlantCommand.Parameters.AddWithValue("@plantName", plantNameTextbox.Text);
-            //addPlantCommand.Parameters.AddWithValue("@plantAddress", plantAddress);
             addPlantCommand.Parameters.AddWithValue("@street", streetTextbox.Text);
             addPlantCommand.Parameters.AddWithValue("@city", cityTextbox.Text);
             addPlantCommand.Parameters.AddWithValue("@state", stateTextbox.Text);
@@ -155,9 +153,7 @@ namespace plant_locator_tool
                 MessageBox.Show("Plant added!");
                 
                 _lastID = (int)addPlantCommand.LastInsertedId;
-                //call pin function on main map instead of handling here
-                //this way each new pin can be registered to an OnClickEvent
-                //Loading pins should be handled on the main map
+
             }
             catch(MySqlException exception)
             {
@@ -166,5 +162,102 @@ namespace plant_locator_tool
                 return;
             }
         }
+
+
+
+        private void plantNameTextbox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(String.IsNullOrEmpty(plantNameTextbox.Text))
+            {
+                _areFormsEmpty = true;
+            }
+            else
+            {
+                _areFormsEmpty = false;
+            }
+        }
+
+        private void CheckCoordinates(double pinLat, double pinLong)
+        {
+            double dbLat, dbLong = 0.0;
+            
+
+            MySqlConnection connection = DBHelper.GetConnection();
+            MySqlCommand command = connection.CreateCommand();
+            command.CommandText = "SELECT lattitude, longitude FROM plant_location WHERE plantID=@plantID";
+            command.Parameters.AddWithValue("plantID", _lastID);
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            if(reader.HasRows)
+            {
+                while(reader.Read())
+                {
+                    dbLat = Double.Parse(reader["lattitude"].ToString());
+                    dbLong = Double.Parse(reader["longitude"].ToString());
+
+                    if(dbLat == pinLat && dbLong == pinLong)
+                    {
+                        MessageBox.Show($"Pin Lat: {pinLat} Pin Long: {pinLong} \n" +
+                        $"DB Lat: {dbLat} DB Long: {dbLong} \n" +
+                         "Coordinates Match!");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Pin Lat: {pinLat} Pin Long: {pinLong} \n" +
+                  $"DB Lat: {dbLat} DB Long: {dbLong} \n" +
+                   "Coordinates Do Not Match!");
+                    }
+               
+
+                    break;
+                }
+            }
+
+            reader.Close();
+
+        }
+
+        private bool IsFormValidated()
+        {
+            if (String.IsNullOrWhiteSpace(plantNameTextbox.Text))
+            {
+                MessageBox.Show("Plant name cannot be left blank.");
+                return false;
+            }
+            else if (String.IsNullOrWhiteSpace(phoneNumberTextbox.Text))
+            {
+                MessageBox.Show("Phone Number cannot be left blank.");
+                return false;
+            }
+            else if (String.IsNullOrWhiteSpace(productsProducedTextbox.Text))
+            {
+                MessageBox.Show("Products Produced cannot be left blank.");
+                return false;
+            }
+            else if (String.IsNullOrWhiteSpace(streetTextbox.Text))
+            {
+                MessageBox.Show("Street cannot be left blank.");
+                return false;
+            }
+            else if (String.IsNullOrWhiteSpace(cityTextbox.Text))
+            {
+                MessageBox.Show("City cannot be left blank.");
+                return false;
+            }
+            else if (String.IsNullOrWhiteSpace(stateTextbox.Text))
+            {
+                MessageBox.Show("State cannot be left blank.");
+                return false;
+            }
+            else if (String.IsNullOrWhiteSpace(zipTextBox.Text))
+            {
+                MessageBox.Show("Zip cannot be left blank.");
+                return false;
+            }
+
+            return true;
+        }
+
     }
 }

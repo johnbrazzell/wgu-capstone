@@ -27,6 +27,14 @@ namespace plant_locator_tool
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
+
+            if(String.IsNullOrWhiteSpace(passwordTextBox.Password))
+            {
+                MessageBox.Show("Password cannot be left blank");
+                return;
+            }
+            
+
             MySqlCommand command = DBHelper.GetConnection().CreateCommand();
             command.CommandText = "UPDATE user SET password=@password WHERE username=@username";
             command.Parameters.AddWithValue("@password", passwordTextBox.Password);

@@ -27,18 +27,18 @@ namespace plant_locator_tool
     public partial class MapWindow : Window
     {
 
-        //Chose the map start location to center on the middle of the U.S.  
-        // Location startLocation = new Location(44.967243, -103.77155);
-        public string testLat = String.Empty;
-        public string testLong = String.Empty;
+   
 
         private string sessionKey;
+        private Microsoft.Maps.MapControl.WPF.Location _startLocation = new Microsoft.Maps.MapControl.WPF.Location(39.8282, -98.5795);
         private Pushpin _searchPin = new Pushpin();
-
+        
 
         public MapWindow()
         {
             InitializeComponent();
+
+            mainMap.SetView(_startLocation, 5.0);
             //Set the search pin to the color green
             _searchPin.Background = new SolidColorBrush(Color.FromArgb(120, 0, 255, 0));
             _searchPin.Name = "searchPin";
@@ -143,7 +143,7 @@ namespace plant_locator_tool
                     cityLabel.Content = "Plant City: " + reader["city"];
                     stateLabel.Content = "Plant State: " + reader["state"];
                     zipLabel.Content = "Plant Zip: " + reader["zip"];
-                    productionInfoLabel.Content = "Produces: " + reader["productionInfo"];
+                    productionInfoLabel.Text = "Produces: " + reader["productionInfo"];
                     lastUpdatedByLabel.Content = "Last Updated By: " + reader["updatedBy"];
                     lastUpdatedDateLabel.Content = "Update Date: " + reader["updatedDate"];
                 }
@@ -286,6 +286,7 @@ namespace plant_locator_tool
 
         private void quitMenuItem_Click(object sender, RoutedEventArgs e)
         {
+            DBHelper.CloseConnection();
             Application.Current.Shutdown();
         }
 
@@ -307,7 +308,8 @@ namespace plant_locator_tool
           
         }
 
-        private void reportsMenuItem_Click(object sender, RoutedEventArgs e)
+
+        private void reports_Click(object sender, RoutedEventArgs e)
         {
             if(WindowOpenCheck.IsWindowOpen("ReportWindow"))
             {
@@ -316,9 +318,10 @@ namespace plant_locator_tool
             else
             {
                 ReportWindow window = new ReportWindow();
-                Show();
+                window.Show();
+
             }
-          
+
         }
     }
 }

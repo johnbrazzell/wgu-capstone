@@ -26,6 +26,17 @@ namespace plant_locator_tool
 
         private void addUserButton_Click(object sender, RoutedEventArgs e)
         {
+            if(String.IsNullOrWhiteSpace(usernameTextBox.Text))
+            {
+                MessageBox.Show("Username cannot be left blank");
+                return;
+            }
+            else if(String.IsNullOrWhiteSpace(passwordBox.Password))
+            {
+                MessageBox.Show("Password cannot be left blank");
+                return;
+            }
+
             DBHelper.AddNewUser(usernameTextBox.Text, passwordBox.Password, isAdminCheckbox.IsChecked.Value);
             this.Close();
         }

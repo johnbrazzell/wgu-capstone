@@ -44,9 +44,11 @@ namespace plant_locator_tool
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            if(String.IsNullOrEmpty(usernameTextBox.Text))
+            if(String.IsNullOrWhiteSpace(usernameTextBox.Text))
             {
-                updatedUser.UserName = oldUsername;
+                MessageBox.Show("Username cannot be left blank");
+                return;
+                //updatedUser.UserName = oldUsername;
             }
             else
             {

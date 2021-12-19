@@ -39,7 +39,7 @@ namespace plant_locator_tool
             _plant = plant;
 
             _initialAddress = $"{_plant.Street} {_plant.City} {_plant.State} {_plant.Zip}";
-            MessageBox.Show(_initialAddress);
+            //MessageBox.Show(_initialAddress);
 
             plantNameTextbox.Text = plant.PlantName;
             phoneNumberTextbox.Text = plant.PhoneNumber;
@@ -59,13 +59,12 @@ namespace plant_locator_tool
 
         private void updatePlantbutton_Click(object sender, RoutedEventArgs e)
         {
-            if(HasAddressChanged())
+            if(HasAddressChanged() && IsFormValidated())
             {
                 GeocodeAddress();
-                //UpdateWithAddressChanged();
-                //UpdatePushPin();
+             
             }
-            else
+            else if(!HasAddressChanged() && IsFormValidated())
             {
                 UpdateWithoutAddressChanged();
             }
@@ -197,8 +196,12 @@ namespace plant_locator_tool
                 UpdateWithAddressChanged();
                 UpdatePushPin();
             }
+            else
+            {
+                MessageBox.Show("Address not found");
+            }
 
-      
+
         }
 
         private void UpdatePushPin()
@@ -209,5 +212,48 @@ namespace plant_locator_tool
            
         }
 
+        private bool IsFormValidated()
+        {
+            if (String.IsNullOrWhiteSpace(plantNameTextbox.Text))
+            {
+                MessageBox.Show("Plant name cannot be left blank.");
+                return false;
+            }
+            else if (String.IsNullOrWhiteSpace(phoneNumberTextbox.Text))
+            {
+                MessageBox.Show("Phone Number cannot be left blank.");
+                return false;
+            }
+            else if (String.IsNullOrWhiteSpace(productsProducedTextbox.Text))
+            {
+                MessageBox.Show("Products Produced cannot be left blank.");
+                return false;
+            }
+            else if (String.IsNullOrWhiteSpace(streetTextbox.Text))
+            {
+                MessageBox.Show("Street cannot be left blank.");
+                return false;
+            }
+            else if (String.IsNullOrWhiteSpace(cityTextbox.Text))
+            {
+                MessageBox.Show("City cannot be left blank.");
+                return false;
+            }
+            else if (String.IsNullOrWhiteSpace(stateTextbox.Text))
+            {
+                MessageBox.Show("State cannot be left blank.");
+                return false;
+            }
+            else if (String.IsNullOrWhiteSpace(zipTextBox.Text))
+            {
+                MessageBox.Show("Zip cannot be left blank.");
+                return false;
+            }
+
+            return true;
+        }
+
     }
+
+
 }

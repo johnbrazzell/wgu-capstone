@@ -75,10 +75,16 @@ namespace plant_locator_tool
             MySqlCommand deleteCommand = DBHelper.GetConnection().CreateCommand();
             deleteCommand.CommandText = "DELETE FROM plant_location WHERE plantID=@id";
 
-            DataRowView rowView = plantListView.SelectedItem as DataRowView
+            DataRowView rowView = plantListView.SelectedItem as DataRowView;
 
+            MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete {rowView.Row.ItemArray[1].ToString()}?", "Delete Plant", MessageBoxButton.YesNo);
             
-            if (rowView != null)
+            if(result == MessageBoxResult.No)
+            {
+                return;
+            }
+
+            if (rowView != null && result == MessageBoxResult.Yes)
             {
                 string id = rowView.Row.ItemArray[0].ToString();
                 int plantID = Int32.Parse(id);
@@ -96,6 +102,7 @@ namespace plant_locator_tool
                 }
 
             }
+          
            
 
 

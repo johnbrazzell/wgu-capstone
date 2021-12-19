@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:plant_locator_tool"
         mc:Ignorable="d"
-        Title="Add User" Height="275" Width="320" ResizeMode="CanMinimize">
+        Title="Add User" Height="275" Width="320" ResizeMode="CanMinimize" Background="#3b3b3b" Foreground="White">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -19,13 +19,13 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Label VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" Content="Username"></Label>
-        <TextBox Margin="10, 15, 10, 15"  Grid.Column="1" Grid.Row="0" x:Name="usernameTextBox"></TextBox>
+        <Label VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" Foreground="White" Content="Username"></Label>
+        <TextBox  Margin="10, 15, 10, 15"  Grid.Column="1" Grid.Row="0" x:Name="usernameTextBox"></TextBox>
 
-        <Label  VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Content="Password"></Label>
+        <Label  VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Foreground="White" Content="Password"></Label>
         <PasswordBox Margin="10, 15, 10, 15" Grid.Column="1" Grid.Row="1" x:Name="passwordBox"></PasswordBox>
 
-        <Label VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" Content="Admin"/>
+        <Label VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" Foreground="White" Content="Admin"/>
         <CheckBox VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" x:Name="isAdminCheckbox"/>
 
         <Button Margin="10" Grid.Column="0" Grid.Row="3" x:Name="addUserButton" Click="addUserButton_Click" Content="Add" />

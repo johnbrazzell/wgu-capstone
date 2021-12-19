@@ -94,7 +94,15 @@ namespace plant_locator_tool
             deleteCommand.CommandText = "DELETE FROM user WHERE username=@username";
 
             DataRowView rowView = userListView.SelectedItem as DataRowView;
-            if(rowView != null)
+
+            MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete {rowView.Row.ItemArray[1].ToString()}?", "Delete User", MessageBoxButton.YesNo);
+
+            if(result == MessageBoxResult.No)
+            {
+                return;
+            }
+
+            if(rowView != null && result == MessageBoxResult.Yes)
             {
                 string username = rowView.Row.ItemArray[1].ToString();
                 deleteCommand.Parameters.AddWithValue("@username", username);
