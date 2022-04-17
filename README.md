@@ -1,5 +1,6 @@
 # wgu-capstone
-WGU C# Capstone Project
+
+#H1 WGU C# Capstone Project
 
 This capstone project was created to solve a real life work issue at my job.
 
