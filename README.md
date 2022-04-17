@@ -1,5 +1,3 @@
-# wgu-capstone
-
 # WGU C# Capstone Project
 ## Plant Locator Tool
 
@@ -21,4 +19,6 @@ The application was creating using C# and WPF. Instead of Google Earth/Maps it u
 The application also handled creating users with different access types (Admin or User). Admins are able to create other users, update their account information and add/delete/update any plant/warehouse information. 
 
 When adding a new plant/warehouse, after entering the information the application will make a request to the Bing Maps Rest Services to geocode the location and return a lattitude/longitude. With this information returned a pin would be created on the map with all of the information and then added to the database. Now whenever a user clicked on the pin it would load the associated plant/warehouse information on a sidebar within the app. This information includes the name, address, phone number, and products. 
+
+When updating the information the application would update the plant/warehouse information, as well as send a new geocode location request and update the pin location.
 
